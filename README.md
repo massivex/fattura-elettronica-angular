@@ -1,2 +1,2 @@
 # fattura-elettronica-angular
-Modulo di fatturazione elettronica PA/B2B per AngularJS
+Modulo di fatturazione elettronica PA/B2B per Angular
