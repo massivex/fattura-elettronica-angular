@@ -1,2 +1,2 @@
-# fattura-elettronica-node
-Modulo di fatturazione elettronica PA/B2B per NodeJS
+# fattura-elettronica-angular
+Modulo di fatturazione elettronica PA/B2B per AngularJS
