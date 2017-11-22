@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CedentePrestatoreComponent } from './cedente-prestatore.component';
+import { FormsModule } from '@angular/forms';
 
 describe('CedentePrestatoreComponent', () => {
   let component: CedentePrestatoreComponent;
@@ -8,7 +9,8 @@ describe('CedentePrestatoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CedentePrestatoreComponent ]
+      declarations: [ CedentePrestatoreComponent ],
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));
