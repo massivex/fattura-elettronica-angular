@@ -1,5 +1,6 @@
 # fattura-elettronica-angular
 Modulo di fatturazione elettronica PA/B2B per NodeJS
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
 
 ## Caratteristiche
 - Supporto formato standard PA/B2B XML v1.2.1 [pa]
@@ -10,22 +11,36 @@ Modulo di fatturazione elettronica PA/B2B per NodeJS
 - Metodi di invio a gateway SdI
 
 ## Utilizzo
-```js
-coming soon...
+### Avvio dell'applicazione web di esempio
+Installare le dipendenze con il comando `npm install` e poi avviare il web server con il comando `npm start`.
 
-```
-### Limitazioni
-...
-
-## Portabilità
-...
+Navigare all'indirizzo http://localhost:4200/ per lanciare l'applicazione web.
 
 ## Installazione
-fattura-elettronica-angular è disponibile su npm, quindi tutto quel che serve è eseguire:
+fattura-elettronica-angular è disponibile su npm, quindi per utilizzare il modulo all'interno della vs applicazione Angular 2+ tutto quel che serve è eseguire:
 ```
-	npm install fe-angular --save
+	npm install fattura-elettronica-angular @ng-bootstrap/ng-bootstrap --save
 ```
-dalla console ed agganciare ed importare il modulo FatturaEletronicaModule nella file app.module.ts
+dalla console ed agganciare ed importare i moduli FatturaEletronicaModule e NgbModule nella file app.module.ts
+```
+import { FatturaElettronicaModule } from 'fattura-elettronica-angular';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+[..]
+@NgModule({
+  declarations: [
+    ...
+  ],
+  imports: [	
+    NgbModule.forRoot(),
+    FatturaElettronicaModule
+  ],
+  providers: [],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule { }
+
+```
 
 ## Licenza
 fattura-elettronica-angular è un progetto open source della Massive Dynamic Technology S.r.l.s [mdt] rilasciato sotto licenza [BSD][bsd].
