@@ -22,6 +22,9 @@ Installare le dipendenze con il comando `npm install` e poi avviare il web serve
 
 Navigare all'indirizzo http://localhost:4200/ per lanciare l'applicazione web.
 
+### Applicazione web di esempio
+https://skynet.sediva.it/fe/
+
 ## Installazione
 fattura-elettronica-angular è disponibile su npm, quindi per utilizzare il modulo all'interno della vs applicazione Angular 5 tutto quel che serve è eseguire:
 ```
