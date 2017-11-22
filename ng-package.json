@@ -3,5 +3,5 @@
     "lib": {
       "entryFile": "public_api.ts"
     },
-    "dest": "fe-angular"
+    "dest": "publish"
   }

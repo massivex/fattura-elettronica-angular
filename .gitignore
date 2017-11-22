@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 npm-debug.log.*
-fe-angular/*
+/publish
