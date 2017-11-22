@@ -14,7 +14,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "package": "ng-packagr -p ng-package.json",
-    "hmr": "ng serve --hmr -e=hmr"
+    "hmr": "ng serve --hmr -e=hmr",
+    "ci:travis" : "ng build --prod --aot"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",
