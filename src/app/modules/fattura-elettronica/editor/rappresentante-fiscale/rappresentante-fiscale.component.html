@@ -1,0 +1,41 @@
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="mx-editor-input-cedente-id-paese">Identificativo Paese</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-id-paese" placeholder="ID Paese" value="IT">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-cedente-partita-iva">Partica IVA</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-prestatore-partita-iva" placeholder="Partica IVA">
+    </div>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" [(ngModel)]="personaFisica" name="check-rappresentante-persona-fisica"> Persona fisica
+    </label>
+  </div>
+  <div class="form-row" *ngIf="!personaFisica">
+    <div class="form-group col-md-8">
+      <label for="mx-editor-input-rappresentante-denominazione">Denominazione</label>
+      <input type="text" class="form-control" id="mx-editor-input-rappresentante-fiscale-denominazione" placeholder="Denominazione">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="mx-editor-input-rappresentante-eori">Codice EORI</label>
+      <input type="text" class="form-control" id="mx-editor-input-rappresentante-eori" placeholder="Codice EORI">
+    </div>
+  </div>
+  <div class="form-row" *ngIf="personaFisica">
+    <div class="form-group col-md-2">
+      <label for="mx-editor-input-rappresentante-titolo">Titolo</label>
+      <input type="text" class="form-control" id="mx-editor-input-rappresentante-titolo" placeholder="Titolo">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-rappresentante-nome">Nome</label>
+      <input type="text" class="form-control" id="mx-editor-input-rappresentante-nome" placeholder="Nome">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-rappresentante-cognome">Cognome</label>
+      <input type="text" class="form-control" id="mx-editor-input-rappresentante-cognome" placeholder="Cognome">
+    </div>
+  </div>
+</form>

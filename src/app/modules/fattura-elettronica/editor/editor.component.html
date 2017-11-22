@@ -1,0 +1,55 @@
+<ngb-tabset>
+  <ngb-tab title="Intestazione">
+    <ng-template ngbTabContent>
+      <ngb-accordion #acc="ngbAccordion" [closeOthers]="true">
+        <ngb-panel title="Dati trasmissione">
+          <ng-template ngbPanelContent>
+            <mx-editor-dati-trasmissione></mx-editor-dati-trasmissione>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Cedente prestatore">
+          <ng-template ngbPanelContent>
+            <mx-editor-cedente-prestatore></mx-editor-cedente-prestatore>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Rappresentante fiscale">
+          <ng-template ngbPanelContent>
+              <mx-editor-rappresentante-fiscale></mx-editor-rappresentante-fiscale>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle>
+      <b>Corpo</b>
+    </ng-template>
+    <ng-template ngbTabContent>
+      <p>Work in progress...</p>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle>
+      <b>XML</b>
+    </ng-template>
+    <ng-template ngbTabContent>
+        <p>Work in progress...</p>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle>
+      <b>Errori</b>
+    </ng-template>
+    <ng-template ngbTabContent>
+        <p>Work in progress...</p>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle>
+      <b>Versione</b>
+    </ng-template>
+    <ng-template ngbTabContent>
+        <p>Work in progress...</p>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

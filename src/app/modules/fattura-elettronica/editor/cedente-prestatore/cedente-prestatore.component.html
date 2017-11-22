@@ -1,0 +1,69 @@
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="mx-editor-input-cedente-id-paese">Identificativo Paese</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-id-paese" placeholder="ID Paese" value="IT">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-cedente-partita-iva">Partica IVA</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-prestatore-partita-iva" placeholder="Partica IVA">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-cedente-codice-fiscale">Codice fiscale</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-prestatore-codice-fiscale" placeholder="Codice fiscale">
+    </div>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" [(ngModel)]="personaFisica" name="check-cedente-persona-fisica"> Persona fisica
+    </label>
+  </div>
+  <div class="form-row" *ngIf="!personaFisica">
+      <div class="form-group col-md-8">
+        <label for="mx-editor-input-cedente-denominazione">Denominazione</label>
+        <input type="text" class="form-control" id="mx-editor-input-cedente-fiscale-denominazione" placeholder="Denominazione">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="mx-editor-input-cedente-eori">Codice EORI</label>
+        <input type="text" class="form-control" id="mx-editor-input-cedente-eori" placeholder="Codice EORI">
+      </div>
+    </div>
+  <div class="form-row" *ngIf="personaFisica">
+    <div class="form-group col-md-2">
+      <label for="mx-editor-input-cedente-titolo">Titolo</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-titolo" placeholder="Titolo">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-cedente-nome">Nome</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-nome" placeholder="Nome">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-cedente-cognome">Cognome</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-cognome" placeholder="Cognome">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="mx-editor-input-cedente-albo-professionale">Albo professionale</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-albo-professionale" placeholder="Albo professionale">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="mx-editor-input-cedente-provincia">Provincia</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-provincia" placeholder="Provincia">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="mx-editor-input-cedente-iscrizione-albo">N. iscrizione albo</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-iscrizione-albo" placeholder="N. isrizione albo">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="mx-editor-input-cedente-iscrizione-data">Data iscrizione albo</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-iscrizione-data" placeholder="Data iscrizione albo">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <label for="mx-editor-input-cedente-regime-fiscale">Regime fiscale</label>
+      <input type="text" class="form-control" id="mx-editor-input-cedente-regime-fiscale" placeholder="Regime fiscale">
+    </div>
+  </div>
+</form>
