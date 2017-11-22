@@ -1,6 +1,6 @@
 {
   "name": "fattura-elettronica-angular",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "BSD",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "e2e": "ng e2e",
     "package": "ng-packagr -p ng-package.json",
     "hmr": "ng serve --hmr -e=hmr",
-    "ci:travis" : "ng build --prod --aot"
+    "ci:travis": "ng build --prod --aot"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",
