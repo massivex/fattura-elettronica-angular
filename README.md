@@ -1,14 +1,18 @@
 # fattura-elettronica-angular
 Modulo di fatturazione elettronica PA/B2B per NodeJS
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
+
 
 ## Caratteristiche
+### Modulo
 - Supporto formato standard PA/B2B XML v1.2.1 [pa]
 - Importazione e conversione xml v1.1 a v1.2
 - Importazione e validazione xml v1.2
 - Strumenti di modifica contenuto fattura
 - Esportazione files xml v1.2
 - Metodi di invio a gateway SdI
+- Creato con [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3
+- Supporto [Angular 5](https://angular.io/) e compilazione [AOT](https://angular.io/guide/aot-compiler)
+- Interfaccia compatibile con [Bootstrap 4](https://getbootstrap.com/)
 
 ## Utilizzo
 ### Avvio dell'applicazione web di esempio
@@ -17,7 +21,7 @@ Installare le dipendenze con il comando `npm install` e poi avviare il web serve
 Navigare all'indirizzo http://localhost:4200/ per lanciare l'applicazione web.
 
 ## Installazione
-fattura-elettronica-angular è disponibile su npm, quindi per utilizzare il modulo all'interno della vs applicazione Angular 2+ tutto quel che serve è eseguire:
+fattura-elettronica-angular è disponibile su npm, quindi per utilizzare il modulo all'interno della vs applicazione Angular 5 tutto quel che serve è eseguire:
 ```
 	npm install fattura-elettronica-angular @ng-bootstrap/ng-bootstrap --save
 ```

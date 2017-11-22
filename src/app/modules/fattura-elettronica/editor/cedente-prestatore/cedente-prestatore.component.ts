@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CedentePrestatoreComponent implements OnInit {
 
+  public personaFisica: boolean;
+
   constructor() { }
 
   ngOnInit() {
+    this.personaFisica = false;
   }
 
 }
