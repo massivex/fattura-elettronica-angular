@@ -1,0 +1,135 @@
+// article, aside, header{
+//     display:block;
+// }
+
+// a {
+//     background:transparent;
+// }
+
+// a:active,a:hover {
+//     outline:0;
+// }
+
+// img {
+//     border:0;
+// }
+
+// a {
+//     color:#08c;
+//     text-decoration:none;
+//     cursor:pointer;
+// }
+
+// a:visited{
+//     color:#08c;
+// }
+
+// a:hover{
+//     color:#08c;
+// }
+
+// a:active{
+//     color:#08c;
+// }
+
+// img {
+//     vertical-align:middle;
+// }
+
+// @media print{
+//     header {
+//         display:none!important;
+//     }
+    
+//     a,a:visited{
+//         color:#DDD;font-weight:bold;
+//     }
+// }
+
+// h3 {
+//     margin-top:0;
+//     margin-bottom:.5rem;
+// }
+
+// aside.onebox {
+//     border:5px solid #e9e9e9;
+//     padding:12px 25px 12px 12px;
+//     margin-top: 15px;
+//     font-size: 1em;
+
+//     header {
+//         margin-bottom:8px;
+
+//         a[href] {
+//             color:#919191;text-decoration:none;
+//         }
+//     }
+
+//     .onebox-body{
+//         clear:both;
+
+//         h3 {
+//             font-size:1.17em;margin:0 0 10px 0;
+//         }
+
+//         a[href] {
+//             color:#08c;text-decoration:none;
+//         }
+
+//         a[href]:visited {
+//             color:#08c;
+//         }
+
+//         img {
+//             max-height:70px;
+//             max-width:20%;
+//             height:auto;
+//             width:auto;
+//             float:left;
+//             margin-right:10px;
+//         }
+
+//         p:last-child {
+//             margin-bottom:4px;
+//         }
+        
+//         .onebox-avatar {
+//             max-height:none;
+//             max-width:none;
+//             height:60px;width:60px;
+//         }
+//     }
+// }
+
+// .onebox-metadata {
+//     color:#919191;
+// }
+
+// .cooked h3 {
+//     margin:30px 0 10px;
+// }
+
+// .cooked a {
+//     word-wrap:break-word;
+// }
+
+// header {
+//     margin-bottom:15px;
+// }
+
+// h3+p {
+//     margin-top:0px;
+// }
+
+
+// a {
+//     color:#06c;
+// }
+
+// a:visited {
+//     color:#06c;
+// }
+
+// header {
+//     margin-bottom:0;
+// }

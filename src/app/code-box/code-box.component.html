@@ -1,0 +1,16 @@
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+    <a [href]="url" target="_blank" rel="nofollow noopener">{{ host() }}</a>
+  </header>
+  <article class="onebox-body">
+    <img [src]="imageUrl" width="60" height="60" class="thumbnail onebox-avatar">
+
+    <h3>
+      <a [href]="url" target="_blank" rel="nofollow noopener">{{ title }}</a>
+    </h3>
+    <ng-content></ng-content>
+  </article>
+  <div class="onebox-metadata">
+  </div>
+  <div style="clear: both"></div>
+</aside>

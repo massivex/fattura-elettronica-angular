@@ -1,0 +1,49 @@
+.header {
+    background:#00264d!important;
+    color:#a5abb0;
+    min-height:150px;
+    min-height:15rem;
+    padding:1rem;
+    padding-top:35px;
+    padding-top:2.8rem;
+
+    .row>div { 
+        margin-top:20px;
+        margin-top:2rem;
+        float:left;
+    }
+
+    .logoteam-img {
+        width:64px;height:auto;
+        margin-top:4px;margin-right:10px;
+        padding-right:10px;
+        border-right:1px solid #fff;
+        img { max-width:100%;height:auto; }
+    }
+    
+    .logoteam-string a {
+        color:#fff!important;        
+        font-size:15px;
+        font-weight:600;
+        line-height:20px;
+        display:block;
+        text-transform:uppercase;        
+    }
+
+    .logogov-img {
+        width:64px;height:auto;
+        margin-right:10px;
+        padding-right:10px;
+        img { max-width:100%;height:auto; }
+    }
+
+    .logogov-string a { 
+        color:#fff!important;
+        font-size:18px;
+        line-height:24px;
+        display:block;font-weight:600;}
+
+    .pull-left { float:left; }
+}
+
+

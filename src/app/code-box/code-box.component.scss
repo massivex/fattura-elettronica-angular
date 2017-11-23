@@ -1,0 +1,43 @@
+aside.onebox {
+    border:5px solid #e9e9e9;
+    padding:12px 25px 12px 12px;
+    margin-top: 15px;
+    font-size: 1em;
+
+    header {
+        margin-bottom:8px;
+
+        a[href] {
+            color:#919191;text-decoration:none;
+        }
+    }
+
+    .onebox-body{
+        clear:both;
+
+        h3 {
+            font-size:1.17em;margin:0 0 10px 0;
+        }
+
+        a[href] {
+            color:#08c;text-decoration:none;
+        }
+
+        a[href]:visited {
+            color:#08c;
+        }
+
+        img {
+            max-height:70px;
+            max-width:70px;
+            height:auto;
+            width:auto;
+            float:left;
+            margin-right:10px;
+        }
+
+        p:last-child {
+            margin-bottom:4px;
+        }
+    }
+}
