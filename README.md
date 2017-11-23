@@ -1,9 +1,10 @@
-[![npm version](https://badge.fury.io/js/fattura-elettronica-angular.svg)](https://badge.fury.io/js/fattura-elettronica-angular)
-[![Build Status](https://travis-ci.org/massivex/fattura-elettronica-angular.svg?branch=master)](https://travis-ci.org/massivex/fattura-elettronica-angular)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8e8cb30096654962bc46d8f19669d73f)](https://www.codacy.com/app/massivex/fattura-elettronica-angular?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=massivex/fattura-elettronica-angular&amp;utm_campaign=Badge_Grade)
 # fattura-elettronica-angular
 Modulo di fatturazione elettronica PA/B2B per NodeJS
 
+[![npm version](https://badge.fury.io/js/fattura-elettronica-angular.svg)](https://badge.fury.io/js/fattura-elettronica-angular)
+[![Build Status](https://travis-ci.org/massivex/fattura-elettronica-angular.svg?branch=master)](https://travis-ci.org/massivex/fattura-elettronica-angular)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8e8cb30096654962bc46d8f19669d73f)](https://www.codacy.com/app/massivex/fattura-elettronica-angular?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=massivex/fattura-elettronica-angular&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/8e8cb30096654962bc46d8f19669d73f)](https://www.codacy.com/app/massivex/fattura-elettronica-angular?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=massivex/fattura-elettronica-angular&amp;utm_campaign=Badge_Coverage)
 
 ## Caratteristiche
 ### Modulo
