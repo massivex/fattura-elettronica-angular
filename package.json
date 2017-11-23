@@ -15,7 +15,7 @@
     "e2e": "ng e2e",
     "package": "ng-packagr -p ng-package.json",
     "hmr": "ng serve --hmr -e=hmr",
-    "ci:travis": "ng build --prod --aot",
+    "ci:travis": "ng build --prod --aot && npm run coverage",
     "coverage": "ng test --watch=false --code-coverage"
   },
   "dependencies": {
