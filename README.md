@@ -1,5 +1,5 @@
 # fattura-elettronica-angular
-Modulo di fatturazione elettronica PA/B2B per NodeJS
+Modulo di fatturazione elettronica PA/B2B per Angular
 
 [![npm version](https://badge.fury.io/js/fattura-elettronica-angular.svg)](https://badge.fury.io/js/fattura-elettronica-angular)
 [![Build Status](https://travis-ci.org/massivex/fattura-elettronica-angular.svg?branch=master)](https://travis-ci.org/massivex/fattura-elettronica-angular)
