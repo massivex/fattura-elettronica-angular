@@ -1,0 +1,39 @@
+<form>
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label for="mx-editor-indirizzo">Indirizzo</label>
+        <input id="mx-editor-indirizzo" type="text" class="form-control" placeholder="Indirizzo">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="mx-editor-civico">Civico</label>
+        <input id="mx-editor-civico" type="text" class="form-control" placeholder="Civico">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="mx-editor-cap">CAP</label>
+        <input id="mx-editor-cap" type="text" class="form-control" placeholder="CAP">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="mx-editor-comune">Comune</label>
+        <input id="mx-editor-comune" type="text" class="form-control" placeholder="Comune">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="mx-editor-provincia">Provincia</label>
+        <select  id="mx-editor-provincia" class="form-control">
+          <option [value]="null">
+            <option *ngFor="let provincia of provincie" [value]="provincia.sigla">
+              {{ provincia.nome }}
+            </option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="mx-editor-nazione">Nazione</label>
+        <input id="mx-editor-nazione" type="text" class="form-control" placeholder="Nazione">
+      </div>
+    </div>
+  </form>

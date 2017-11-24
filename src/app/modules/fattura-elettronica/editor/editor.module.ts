@@ -6,6 +6,9 @@ import { DatiTrasmissioneComponent } from './dati-trasmissione/dati-trasmissione
 import { CedentePrestatoreComponent } from './cedente-prestatore/cedente-prestatore.component';
 import { RappresentanteFiscaleComponent } from './rappresentante-fiscale/rappresentante-fiscale.component';
 import { FormsModule } from '@angular/forms';
+import { CessionarioCommittenteComponent } from './cessionario-committente/cessionario-committente.component';
+import { BloccoIndirizzoComponent } from './blocco-indirizzo/blocco-indirizzo.component';
+import { IscrizioneReaComponent } from './iscrizione-rea/iscrizione-rea.component';
 
 @NgModule({
   imports: [
@@ -17,7 +20,10 @@ import { FormsModule } from '@angular/forms';
     EditorComponent,
     DatiTrasmissioneComponent,
     CedentePrestatoreComponent,
-    RappresentanteFiscaleComponent
+    RappresentanteFiscaleComponent,
+    CessionarioCommittenteComponent,
+    BloccoIndirizzoComponent,
+    IscrizioneReaComponent
   ],
   exports: [
     EditorComponent

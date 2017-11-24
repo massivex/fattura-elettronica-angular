@@ -5,7 +5,7 @@ Modulo di fatturazione elettronica PA/B2B per Angular
 [![Build Status](https://travis-ci.org/massivex/fattura-elettronica-angular.svg?branch=master)](https://travis-ci.org/massivex/fattura-elettronica-angular)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8e8cb30096654962bc46d8f19669d73f)](https://www.codacy.com/app/massivex/fattura-elettronica-angular?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=massivex/fattura-elettronica-angular&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/8e8cb30096654962bc46d8f19669d73f)](https://www.codacy.com/app/massivex/fattura-elettronica-angular?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=massivex/fattura-elettronica-angular&amp;utm_campaign=Badge_Coverage)
-
+[![dependencies Status](https://david-dm.org/massivex/fattura-elettronica-angular/status.svg)](https://david-dm.org/massivex/fattura-elettronica-angular)
 ## Caratteristiche
 ### Modulo
 - Supporto formato standard PA/B2B XML v1.2.1 [pa]

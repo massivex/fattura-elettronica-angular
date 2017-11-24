@@ -6,6 +6,9 @@ import { DatiTrasmissioneComponent } from './dati-trasmissione/dati-trasmissione
 import { CedentePrestatoreComponent } from './cedente-prestatore/cedente-prestatore.component';
 import { RappresentanteFiscaleComponent } from './rappresentante-fiscale/rappresentante-fiscale.component';
 import { FormsModule } from '@angular/forms';
+import { CessionarioCommittenteComponent } from './cessionario-committente/cessionario-committente.component';
+import { BloccoIndirizzoComponent } from './blocco-indirizzo/blocco-indirizzo.component';
+import { IscrizioneReaComponent } from './iscrizione-rea/iscrizione-rea.component';
 
 describe('EditorComponent', () => {
   let component: EditorComponent;
@@ -13,7 +16,11 @@ describe('EditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditorComponent, DatiTrasmissioneComponent, CedentePrestatoreComponent, RappresentanteFiscaleComponent ],
+      declarations: [
+        EditorComponent, DatiTrasmissioneComponent, CedentePrestatoreComponent,
+        RappresentanteFiscaleComponent, CessionarioCommittenteComponent,
+        BloccoIndirizzoComponent, IscrizioneReaComponent
+      ],
       imports: [ NgbModule.forRoot(), FormsModule ]
     })
     .compileComponents();

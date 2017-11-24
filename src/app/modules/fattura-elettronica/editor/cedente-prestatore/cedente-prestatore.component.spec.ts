@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CedentePrestatoreComponent } from './cedente-prestatore.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BloccoIndirizzoComponent } from '../blocco-indirizzo/blocco-indirizzo.component';
+import { IscrizioneReaComponent } from '../iscrizione-rea/iscrizione-rea.component';
 
 describe('CedentePrestatoreComponent', () => {
   let component: CedentePrestatoreComponent;
@@ -9,8 +12,8 @@ describe('CedentePrestatoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CedentePrestatoreComponent ],
-      imports: [ FormsModule ]
+      declarations: [ CedentePrestatoreComponent, BloccoIndirizzoComponent, IscrizioneReaComponent ],
+      imports: [ FormsModule, NgbModule.forRoot() ]
     })
     .compileComponents();
   }));

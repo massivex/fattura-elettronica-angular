@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cedente-prestatore.component.scss']
 })
 export class CedentePrestatoreComponent implements OnInit {
-
   public personaFisica: boolean;
 
   constructor() { }
@@ -14,5 +13,4 @@ export class CedentePrestatoreComponent implements OnInit {
   ngOnInit() {
     this.personaFisica = false;
   }
-
 }

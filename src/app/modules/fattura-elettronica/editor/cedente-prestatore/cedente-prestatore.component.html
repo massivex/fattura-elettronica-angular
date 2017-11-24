@@ -1,69 +1,139 @@
-<form>
-  <div class="form-row">
-    <div class="form-group col-md-2">
-      <label for="mx-editor-input-cedente-id-paese">Identificativo Paese</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-id-paese" placeholder="ID Paese" value="IT">
-    </div>
-    <div class="form-group col-md-5">
-      <label for="mx-editor-input-cedente-partita-iva">Partica IVA</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-prestatore-partita-iva" placeholder="Partica IVA">
-    </div>
-    <div class="form-group col-md-5">
-      <label for="mx-editor-input-cedente-codice-fiscale">Codice fiscale</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-prestatore-codice-fiscale" placeholder="Codice fiscale">
-    </div>
-  </div>
-  <div class="form-check">
-    <label class="form-check-label">
-      <input type="checkbox" class="form-check-input" [(ngModel)]="personaFisica" name="check-cedente-persona-fisica"> Persona fisica
-    </label>
-  </div>
-  <div class="form-row" *ngIf="!personaFisica">
-      <div class="form-group col-md-8">
-        <label for="mx-editor-input-cedente-denominazione">Denominazione</label>
-        <input type="text" class="form-control" id="mx-editor-input-cedente-fiscale-denominazione" placeholder="Denominazione">
+<ngb-tabset>
+  <ngb-tab title="Dati anagrafici">
+    <ng-template ngbTabContent>
+      <div class="tab-content-bordered">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="mx-editor-input-cedente-id-paese">Identificativo Paese</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-id-paese" placeholder="ID Paese" value="IT">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="mx-editor-input-cedente-partita-iva">Partica IVA</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-partita-iva" placeholder="Partica IVA">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="mx-editor-input-cedente-codice-fiscale">Codice fiscale</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-codice-fiscale" placeholder="Codice fiscale">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="mx-editor-input-cedente-eori">Codice EORI</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-eori" placeholder="Codice EORI">
+            </div>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input" [(ngModel)]="personaFisica" name="check-cedente-persona-fisica"> Persona fisica
+            </label>
+          </div>
+          <div class="form-row" *ngIf="!personaFisica">
+            <div class="form-group col-md-12">
+              <label for="mx-editor-input-cedente-denominazione">Denominazione</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-fiscale-denominazione" placeholder="Denominazione">
+            </div>
+          </div>
+          <div class="form-row" *ngIf="personaFisica">
+            <div class="form-group col-md-2">
+              <label for="mx-editor-input-cedente-titolo">Titolo</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-titolo" placeholder="Titolo">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="mx-editor-input-cedente-nome">Nome</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-nome" placeholder="Nome">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="mx-editor-input-cedente-cognome">Cognome</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-cognome" placeholder="Cognome">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="mx-editor-input-cedente-albo-professionale">Albo professionale</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-albo-professionale" placeholder="Albo professionale">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="mx-editor-input-cedente-provincia">Provincia</label>
+              <select class="form-control" id="mx-editor-input-cedente-provincia">
+                <option [value]="null">
+                  <option *ngFor="let provincia of provincie" [value]="provincia.sigla">
+                    {{ provincia.nome }}
+                  </option>
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="mx-editor-input-cedente-iscrizione-albo">N. iscrizione albo</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-iscrizione-albo" placeholder="N. isrizione albo">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="mx-editor-input-cedente-iscrizione-data">Data iscrizione albo</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-iscrizione-data" placeholder="Data iscrizione albo">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="mx-editor-input-cedente-regime-fiscale">Regime fiscale</label>
+              <input type="text" class="form-control" id="mx-editor-input-cedente-regime-fiscale" placeholder="Regime fiscale">
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="form-group col-md-4">
-        <label for="mx-editor-input-cedente-eori">Codice EORI</label>
-        <input type="text" class="form-control" id="mx-editor-input-cedente-eori" placeholder="Codice EORI">
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Sede">
+    <ng-template ngbTabContent>
+      <div class="tab-content-bordered">
+        <mx-editor-blocco-indirizzo></mx-editor-blocco-indirizzo>
       </div>
-    </div>
-  <div class="form-row" *ngIf="personaFisica">
-    <div class="form-group col-md-2">
-      <label for="mx-editor-input-cedente-titolo">Titolo</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-titolo" placeholder="Titolo">
-    </div>
-    <div class="form-group col-md-5">
-      <label for="mx-editor-input-cedente-nome">Nome</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-nome" placeholder="Nome">
-    </div>
-    <div class="form-group col-md-5">
-      <label for="mx-editor-input-cedente-cognome">Cognome</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-cognome" placeholder="Cognome">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-3">
-      <label for="mx-editor-input-cedente-albo-professionale">Albo professionale</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-albo-professionale" placeholder="Albo professionale">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="mx-editor-input-cedente-provincia">Provincia</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-provincia" placeholder="Provincia">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="mx-editor-input-cedente-iscrizione-albo">N. iscrizione albo</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-iscrizione-albo" placeholder="N. isrizione albo">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="mx-editor-input-cedente-iscrizione-data">Data iscrizione albo</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-iscrizione-data" placeholder="Data iscrizione albo">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-12">
-      <label for="mx-editor-input-cedente-regime-fiscale">Regime fiscale</label>
-      <input type="text" class="form-control" id="mx-editor-input-cedente-regime-fiscale" placeholder="Regime fiscale">
-    </div>
-  </div>
-</form>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Stabile organizzazione">
+    <ng-template ngbTabContent>
+      <div class="tab-content-bordered">
+        <mx-editor-blocco-indirizzo></mx-editor-blocco-indirizzo>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Iscrizione REA">
+    <ng-template ngbTabContent>
+      <div class="tab-content-bordered">
+        <mx-editor-iscrizione-rea></mx-editor-iscrizione-rea>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Contatti">
+    <ng-template ngbTabContent>
+      <div class="tab-content-bordered">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="mx-editor-cedente-telefono">Telefono</label>
+              <input id="mx-editor-cedente-telefono" type="text" class="form-control" placeholder="Telefono">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="mx-editor-cedente-telefono">FAX</label>
+              <input id="mx-editor-cedente-telefono" type="text" class="form-control" placeholder="FAX">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="mx-editor-cedente-telefono">e-mail</label>
+              <input id="mx-editor-cedente-telefono" type="email" class="form-control" placeholder="e-mail">
+            </div>
+          </div>
+        </form>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Riferimento amministrazione">
+      <ng-template ngbTabContent>
+        <div class="tab-content-bordered">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="mx-editor-cedente-rifamministrazione">Codice riferimento amministrazione</label>
+                  <input id="mx-editor-cedente-rifamministrazione" type="email" class="form-control" placeholder="Codice riferimento amministrazione">
+                </div>
+              </div>    
+        </div>
+      </ng-template>
+    </ngb-tab>  
+</ngb-tabset>

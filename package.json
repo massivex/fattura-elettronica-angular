@@ -16,7 +16,10 @@
     "package": "ng-packagr -p ng-package.json",
     "hmr": "ng serve --hmr -e=hmr",
     "ci:travis": "ng build --prod --aot && npm run coverage",
-    "coverage": "ng test --watch=false --code-coverage"
+    "coverage": "ng test --watch=false --code-coverage",
+    "version" : "ng build --prod --aot && npm run coverage",
+    "postversion" : "git push && git push --tags && npm run publish-npm",
+    "publish-npm": "cd publish && npm publish"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",
