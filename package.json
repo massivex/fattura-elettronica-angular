@@ -19,7 +19,7 @@
     "coverage": "ng test --watch=false --code-coverage",
     "version": "ng build --prod --aot && npm run coverage",
     "postversion": "git push && git push --tags && npm run publish-npm",
-    "publish-npm": "cd publish && npm publish"
+    "publish-npm": "npm run package && cd publish && npm publish"
   },
   "dependencies": {
     "@angular/animations": "^5.0.0",
