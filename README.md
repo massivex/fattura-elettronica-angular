@@ -18,6 +18,9 @@ Modulo di fatturazione elettronica PA/B2B per Angular
 - Supporto [Angular 5](https://angular.io/) e compilazione [AOT](https://angular.io/guide/aot-compiler)
 - Interfaccia compatibile con [Bootstrap 4](https://getbootstrap.com/)
 
+## Risorse
+- [Slack](https://massivex.slack.com/messages/C85DSLQSK/)
+
 ## Utilizzo
 ### Avvio dell'applicazione web di esempio
 Installare le dipendenze con il comando `npm install` e poi avviare il web server con il comando `npm start`.
