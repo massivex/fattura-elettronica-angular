@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
+import { tick } from '@angular/core/testing';
 
 @Injectable()
 export class XmlParserService {
@@ -9,6 +10,20 @@ export class XmlParserService {
   public hasNode(xml: Document, xpath: string) {
     const node = xml.evaluate(xpath, xml, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
     return node.singleNodeValue !== null;
+  }
+
+  public getDate(xml: Document, xpath: string) {
+    const dateText = this.getText(xml, xpath);
+    if (_.isUndefined(dateText)) {
+      return undefined;
+    }
+
+    const ticks = Date.parse(dateText);
+    if (ticks === NaN) {
+      return undefined;
+    }
+
+    return new Date(ticks);
   }
 
   public getText(xml: Document, xpath: string) {

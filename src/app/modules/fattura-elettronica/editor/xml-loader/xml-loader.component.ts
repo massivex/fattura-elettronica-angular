@@ -14,18 +14,22 @@ export class XmlLoaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onFileChange(e: any) {
-    const file = e.target.files[0] as any;
+  public onFileChange(e: any): Promise<void> {
+    const file = e.target.files[0] as Blob;
     if (!file) {
-      return;
+      return Promise.resolve();
     }
-    const reader = new FileReader();
-    reader.onload = (args: any) => {
-      const content = args.target.result;
-      this.loaded.emit({ content });
-      e.target.value = '';
-    };
-    reader.readAsText(file);
+
+    return new Promise( (resolve) => {
+      const reader = new FileReader();
+      reader.onload = (args: any) => {
+        const content = args.target.result;
+        this.loaded.emit({ content });
+        e.target.value = '';
+        resolve();
+      };
+      reader.readAsText(file);
+    });
   }
 }
 

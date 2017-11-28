@@ -4,6 +4,7 @@ import { FatturaElettronicaParserService } from '../shared/fattura-elettronica-p
 import { DatiTrasmissioneComponent } from './dati-trasmissione/dati-trasmissione.component';
 import { NgbTabset } from '@ng-bootstrap/ng-bootstrap/tabset/tabset';
 import * as _ from 'lodash';
+import * as fe from '../shared/fattura-elettronica.model';
 
 @Component({
   selector: 'mx-editor',
@@ -11,7 +12,10 @@ import * as _ from 'lodash';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  @ViewChild(NgbTabset) tabSet: NgbTabset;
+  @ViewChild(NgbTabset) editorTabs: NgbTabset;
+
+  public datiCedente: fe.CedentePrestatore;
+  public datiTrasmissione: fe.DatiTrasmissione;
 
   constructor(
     private fatturaParser: FatturaElettronicaParserService
@@ -22,11 +26,10 @@ export class EditorComponent implements OnInit {
 
   public onXmlLoaded(e: XmlLoaderLoadedEventArgs) {
     this.fatturaParser.loadXml(e.content);
-    const datiTramissione = this.fatturaParser.getDatiTrasmissione();
-    const cedentePrestatore = this.fatturaParser.getCedentePrestatore();
-    if (!_.isNil(datiTramissione) && !_.isNil(cedentePrestatore)) {
-      this.tabSet.select('ngb-tab-0');
-      alert('xml caricato correttamente');
+    this.datiTrasmissione = this.fatturaParser.getDatiTrasmissione();
+    this.datiCedente = this.fatturaParser.getCedentePrestatore();
+    if (!_.isNil(this.datiTrasmissione) && !_.isNil(this.datiCedente)) {
+      this.editorTabs.select('intestazione');
     }
   }
 

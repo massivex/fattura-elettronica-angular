@@ -1,16 +1,16 @@
 <div class="mx-editor">
-  <ngb-tabset>
-    <ngb-tab title="Intestazione">
+  <ngb-tabset #editorTabs="ngbTabset">
+    <ngb-tab title="Intestazione" id="intestazione">
       <ng-template ngbTabContent>
-        <ngb-accordion #acc="ngbAccordion" [closeOthers]="true" activeIds="ngb-panel-0">
+        <ngb-accordion [closeOthers]="true" activeIds="ngb-panel-0">
           <ngb-panel id="ngb-panel-0" title="Dati trasmissione">
             <ng-template ngbPanelContent>
-              <mx-editor-dati-trasmissione></mx-editor-dati-trasmissione>
+              <mx-editor-dati-trasmissione [data]="datiTrasmissione"></mx-editor-dati-trasmissione>
             </ng-template>
           </ngb-panel>
           <ngb-panel title="Cedente prestatore">
             <ng-template ngbPanelContent>
-              <mx-editor-cedente-prestatore></mx-editor-cedente-prestatore>
+              <mx-editor-cedente-prestatore [data]="datiCedente"></mx-editor-cedente-prestatore>
             </ng-template>
           </ngb-panel>
           <ngb-panel title="Rappresentante fiscale">
