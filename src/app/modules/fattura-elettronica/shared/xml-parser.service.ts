@@ -19,7 +19,7 @@ export class XmlParserService {
     }
 
     const ticks = Date.parse(dateText);
-    if (ticks === NaN) {
+    if (isNaN(ticks)) {
       return undefined;
     }
 

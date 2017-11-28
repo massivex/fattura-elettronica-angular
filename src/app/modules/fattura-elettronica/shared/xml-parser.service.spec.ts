@@ -101,4 +101,37 @@ describe('XmlParserService', () => {
     });
   });
 
+  describe('when you call getDate with', () => {
+    let service: XmlParserService;
+    let xml: XMLDocument;
+    beforeEach(() => {
+      service = TestBed.get(XmlParserService);
+      xml = service.createDocument('<root><propA>2017-01-01</propA><propB>225/55-55</propB></root>')
+    });
+
+    describe('an xpath that match a valid date', () => {
+      it('should be returned a date', () => {
+        const actual = service.getDate(xml, '/root/propA');
+        const expected = new Date(2017, 0, 1);
+        expect(actual.getDate()).toEqual(expected.getDate());
+      });
+    });
+
+    describe('an xpath that doesn\'t match a node', () => {
+      it('should be returned undefined', () => {
+        const actual = service.getDate(xml, '/root/missingProp');
+        expect(actual).toBeUndefined();
+      });
+    });
+
+    describe('an xpath that doesn\'t match a valid date', () => {
+      it('should be returned undefined', () => {
+        const actual = service.getDate(xml, '/root/propB');
+        console.log(actual);
+        expect(actual).toBeUndefined();
+      });
+    });
+    
+  });  
+
 });
