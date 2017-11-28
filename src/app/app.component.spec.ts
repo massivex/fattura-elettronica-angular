@@ -1,10 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { FatturaElettronicaModule } from '../../public_api';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CodeBoxComponent } from './code-box/code-box.component';
+import { FatturaElettronicaModule } from './modules/fattura-elettronica/fattura-elettronica.module';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({

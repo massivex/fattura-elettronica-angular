@@ -25,10 +25,6 @@ export class CodeBoxComponent implements OnInit {
     }
 
     const urlParsed = urlParse(this.url);
-    if (_.isNil(urlParsed) || _.isNil(urlParsed.hostname)) {
-      return notAvailable;
-    }
-
     return urlParsed.hostname.replace('www.', '');
   }
 

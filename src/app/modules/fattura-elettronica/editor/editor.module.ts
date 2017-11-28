@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CessionarioCommittenteComponent } from './cessionario-committente/cessionario-committente.component';
 import { BloccoIndirizzoComponent } from './blocco-indirizzo/blocco-indirizzo.component';
 import { IscrizioneReaComponent } from './iscrizione-rea/iscrizione-rea.component';
+import { XmlLoaderComponent } from './xml-loader/xml-loader.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { IscrizioneReaComponent } from './iscrizione-rea/iscrizione-rea.componen
     RappresentanteFiscaleComponent,
     CessionarioCommittenteComponent,
     BloccoIndirizzoComponent,
-    IscrizioneReaComponent
+    IscrizioneReaComponent,
+    XmlLoaderComponent
   ],
   exports: [
     EditorComponent

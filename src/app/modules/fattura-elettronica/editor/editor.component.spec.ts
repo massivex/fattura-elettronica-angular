@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { CessionarioCommittenteComponent } from './cessionario-committente/cessionario-committente.component';
 import { BloccoIndirizzoComponent } from './blocco-indirizzo/blocco-indirizzo.component';
 import { IscrizioneReaComponent } from './iscrizione-rea/iscrizione-rea.component';
+import { XmlLoaderComponent } from './xml-loader/xml-loader.component';
+import { FatturaElettronicaParserService } from '../shared/fattura-elettronica-parser.service';
+import { XmlParserService } from '../shared/xml-parser.service';
 
 describe('EditorComponent', () => {
   let component: EditorComponent;
@@ -19,9 +22,12 @@ describe('EditorComponent', () => {
       declarations: [
         EditorComponent, DatiTrasmissioneComponent, CedentePrestatoreComponent,
         RappresentanteFiscaleComponent, CessionarioCommittenteComponent,
-        BloccoIndirizzoComponent, IscrizioneReaComponent
+        BloccoIndirizzoComponent, IscrizioneReaComponent, XmlLoaderComponent
       ],
-      imports: [ NgbModule.forRoot(), FormsModule ]
+      imports: [ NgbModule.forRoot(), FormsModule ],
+      providers: [
+        FatturaElettronicaParserService, XmlParserService
+      ]
     })
     .compileComponents();
   }));
