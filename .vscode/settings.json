@@ -1,0 +1,10 @@
+{
+	"line-counter.excludes": [
+        "**/.vscode/**",
+        "**/coverage/**",
+        "**/dist/**",
+        "**/assets/**",
+        "**/node_modules/**",        
+        "**/publish/**"
+    ]
+}
