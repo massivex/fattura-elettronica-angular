@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { XmlParserService } from './xml-parser.service';
 
 describe('XmlParserService', () => {
@@ -65,6 +64,16 @@ describe('XmlParserService', () => {
         expect(actual).toBeUndefined();
       });
     });
+
+    describe('a valid xpath', () => {
+      it('should be called in a way that works on Chrome, Edge and Firefox', () => {
+        spyOn(xml, 'evaluate').and.callThrough();
+        const xpath = '//multiProp';
+        const actual = service.getText(xml, xpath);
+        expect(xml.evaluate)
+          .toHaveBeenCalledWith(xpath + '/text()', xml, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
+      });
+    });
   });
 
   describe('when you call hasNode with', () => {
@@ -127,11 +136,8 @@ describe('XmlParserService', () => {
     describe('an xpath that doesn\'t match a valid date', () => {
       it('should be returned undefined', () => {
         const actual = service.getDate(xml, '/root/propB');
-        console.log(actual);
         expect(actual).toBeUndefined();
       });
     });
-    
-  });  
-
+  });
 });

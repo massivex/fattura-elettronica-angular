@@ -28,7 +28,7 @@ export class XmlParserService {
 
   public getText(xml: Document, xpath: string) {
     xpath += '/text()';
-    const value = xml.evaluate(xpath, xml, undefined, undefined, undefined);
+    const value = xml.evaluate(xpath, xml, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null);
 
     let textNode: Node;
     let result: string;

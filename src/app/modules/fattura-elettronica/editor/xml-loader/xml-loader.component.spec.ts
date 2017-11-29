@@ -17,7 +17,6 @@ describe('XmlLoaderComponent', () => {
     fixture = TestBed.createComponent(XmlLoaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    spyOn(component.loaded, 'emit').and.callThrough();
   });
 
   it('should create', () => {
@@ -25,19 +24,23 @@ describe('XmlLoaderComponent', () => {
   });
 
   describe('when onFileChange', () => {
-    it('should not fire loaded if files is empty ', () => {
+    it('should not fire loaded if files is empty ', (done) => {
+      spyOn(component.loaded, 'emit').and.callThrough();
       return component.onFileChange({ target: { files: [] } })
       .then( () => {
         expect(component.loaded.emit).not.toHaveBeenCalled();
+        done();
       });
     });
 
-    it('should fire loaded if files is not empty ', () => {
+    it('should fire loaded if files is not empty ', (done) => {
       const blob = new Blob(['<root></root>'], { type: 'text/xml' });
-      return component
+      spyOn(component.loaded, 'emit').and.callThrough();
+      component
         .onFileChange({ target: { files: [ blob ] } })
         .then( () => {
           expect(component.loaded.emit).toHaveBeenCalledTimes(1);
+          done();
         });
     });
   });
