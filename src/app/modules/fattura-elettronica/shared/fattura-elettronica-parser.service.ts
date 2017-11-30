@@ -33,10 +33,16 @@ export class FatturaElettronicaParserService {
     return {
       progressivoInvio,
       formatoTrasmissione,
+      codiceDestinatario,
       idTrasmittente: {
         idPaese,
         idCodice
-      }
+      },
+      contattiTrasmittente: {
+        email: this.parser.getText(xml, `${root}/ContattiTrasmittente/Email`),
+        telefono: this.parser.getText(xml, `${root}/ContattiTrasmittente/Telefono`)
+      },
+      pecDestinatario: this.parser.getText(xml, `${root}/PecDestinatario`)
     };
   }
 
@@ -54,7 +60,7 @@ export class FatturaElettronicaParserService {
       stabileOrganizzazione: this.getIndirizzo(xml, `${root}/StabileOrganizzazione`),
       iscrizioneREA: this.getIscrizioneREA(xml, `${root}/IscrizioneREA`),
       contatti: this.getContatti(xml, `${root}/Contatti`),
-      riferimentoAmministrazione: this.parser.getText(xml, `${root}/riferimentoAmministrazione`)
+      riferimentoAmministrazione: this.parser.getText(xml, `${root}/RiferimentoAmministrazione`)
     };
   }
 
@@ -66,8 +72,8 @@ export class FatturaElettronicaParserService {
     let indirizzo: fe.Indirizzo;
     if (this.parser.hasNode(xml, root)) {
       indirizzo = {};
-      indirizzo.indirizzo = this.parser.getText(xml, `${root}/indirizzo`);
-      indirizzo.numeroCivico = this.parser.getText(xml, `${root}/numeroCivico`);
+      indirizzo.indirizzo = this.parser.getText(xml, `${root}/Indirizzo`);
+      indirizzo.numeroCivico = this.parser.getText(xml, `${root}/NumeroCivico`);
       indirizzo.cap = this.parser.getText(xml, `${root}/CAP`);
       indirizzo.comune = this.parser.getText(xml, `${root}/Comune`);
       indirizzo.provincia = this.parser.getText(xml, `${root}/Provincia`);
