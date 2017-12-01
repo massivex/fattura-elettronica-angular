@@ -1,0 +1,52 @@
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="mx-editor-input-cedente-id-paese">Identificativo Paese</label>
+      <input type="text" class="form-control" [(ngModel)]="anagrafica.idPaese" name="idPaese" id="mx-editor-input-cedente-id-paese"
+        placeholder="ID Paese" value="IT">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="mx-editor-input-cedente-partita-iva">Partita IVA</label>
+      <input type="text" class="form-control" [(ngModel)]="anagrafica.idCodice" name="idCodice" id="mx-editor-input-cedente-partita-iva"
+        placeholder="Partica IVA">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="mx-editor-input-cedente-codice-fiscale">Codice fiscale</label>
+      <input type="text" class="form-control" [(ngModel)]="anagrafica.codiceFiscale" name="codiceFiscale" id="mx-editor-input-cedente-codice-fiscale"
+        placeholder="Codice fiscale">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="mx-editor-input-cedente-eori">Codice EORI</label>
+      <input type="text" class="form-control" [(ngModel)]="anagrafica.codEORI" name="codEORI" id="mx-editor-input-cedente-eori"
+        placeholder="Codice EORI">
+    </div>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="checkbox" class="form-check-input" [(ngModel)]="anagrafica.personaFisica" name="check-cedente-persona-fisica"> Persona fisica
+    </label>
+  </div>
+  <div class="form-row" *ngIf="!anagrafica.personaFisica">
+    <div class="form-group col-md-12">
+      <label for="mx-editor-input-cedente-denominazione">Denominazione</label>
+      <input type="text" class="form-control" [(ngModel)]="anagrafica.denominazione" name="denominazione" id="mx-editor-input-cedente-fiscale-denominazione"
+        placeholder="Denominazione">
+    </div>
+  </div>
+  <div class="form-row" *ngIf="anagrafica.personaFisica">
+    <div class="form-group col-md-2">
+      <label for="mx-editor-input-cedente-titolo">Titolo</label>
+      <input type="text" class="form-control" [(ngModel)]="anagrafica.titolo" name="titolo" id="mx-editor-input-cedente-titolo"
+        placeholder="Titolo">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-cedente-nome">Nome</label>
+      <input type="text" class="form-control" [(ngModel)]="anagrafica.nome" name="nome" id="mx-editor-input-cedente-nome" placeholder="Nome">
+    </div>
+    <div class="form-group col-md-5">
+      <label for="mx-editor-input-cedente-cognome">Cognome</label>
+      <input type="text" class="form-control" [(ngModel)]="anagrafica.cognome" name="cognome" id="mx-editor-input-cedente-cognome"
+        placeholder="Cognome">
+    </div>
+  </div>
+</form>

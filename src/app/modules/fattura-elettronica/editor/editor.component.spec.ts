@@ -12,6 +12,7 @@ import { IscrizioneReaComponent } from './iscrizione-rea/iscrizione-rea.componen
 import { XmlLoaderComponent } from './xml-loader/xml-loader.component';
 import { FatturaElettronicaParserService } from '../shared/fattura-elettronica-parser.service';
 import * as fe from '../shared/fattura-elettronica.model';
+import { BloccoAnagraficaComponent } from './blocco-anagrafica/blocco-anagrafica.component';
 
 
 describe('EditorComponent', () => {
@@ -23,7 +24,8 @@ describe('EditorComponent', () => {
       declarations: [
         EditorComponent, DatiTrasmissioneComponent, CedentePrestatoreComponent,
         RappresentanteFiscaleComponent, CessionarioCommittenteComponent,
-        BloccoIndirizzoComponent, IscrizioneReaComponent, XmlLoaderComponent
+        BloccoIndirizzoComponent, IscrizioneReaComponent, XmlLoaderComponent,
+        BloccoAnagraficaComponent
       ],
       imports: [NgbModule.forRoot(), FormsModule],
       providers: [
@@ -72,6 +74,10 @@ class MockFatturaElettronicaParserService {
   }
 
   public getCedentePrestatore(): fe.CedentePrestatore {
+    return { riferimentoAmministrazione: 'riferimentoAmministrazione' };
+  }
+
+  public getRappresentanteFiscale(): fe.CedentePrestatore {
     return { riferimentoAmministrazione: 'riferimentoAmministrazione' };
   }
 }

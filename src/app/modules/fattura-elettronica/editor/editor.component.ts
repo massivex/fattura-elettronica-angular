@@ -12,10 +12,12 @@ import * as fe from '../shared/fattura-elettronica.model';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
+  
   @ViewChild(NgbTabset) editorTabs: NgbTabset;
 
   public datiCedente: fe.CedentePrestatore;
   public datiTrasmissione: fe.DatiTrasmissione;
+  public datiRappresentanteFiscale: fe.RappresentanteFiscale;
 
   constructor(
     private fatturaParser: FatturaElettronicaParserService
@@ -28,6 +30,7 @@ export class EditorComponent implements OnInit {
     this.fatturaParser.loadXml(e.content);
     this.datiTrasmissione = this.fatturaParser.getDatiTrasmissione();
     this.datiCedente = this.fatturaParser.getCedentePrestatore();
+    this.datiRappresentanteFiscale = this.fatturaParser.getRappresentanteFiscale();
     if (!_.isNil(this.datiTrasmissione) && !_.isNil(this.datiCedente)) {
       this.editorTabs.select('intestazione');
     }

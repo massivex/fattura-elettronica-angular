@@ -5,6 +5,7 @@ import { FormatWidth } from '@angular/common/src/i18n/locale_data_api';
 import * as _ from 'lodash';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
+import { AnagraficaFormData } from '../blocco-anagrafica/blocco-anagrafica.component';
 
 @Component({
   selector: 'mx-editor-cedente-prestatore',
@@ -12,17 +13,20 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
   styleUrls: ['./cedente-prestatore.component.scss']
 })
 export class CedentePrestatoreComponent implements OnInit, OnChanges {
+
   @Input()
   public data: fe.CedentePrestatore;
 
-  public anagrafica: AnagraficaFormData;
-  public personaFisica: boolean;
-  public idFiscale: string;
+  public anagrafica: fe.DatiAnagrafici;
+  public sede: fe.Indirizzo;
+  public stabile: fe.Indirizzo;
+  public iscrizioneREA: fe.IscrizioneREA;
+  public contatti: fe.Contatti;
+  public albo: AlboFormData;
+  public riferimentoAmministrazione: string;
 
   constructor() {
-    this.anagrafica = {
-      personaFisica: false
-    };
+    this.setDefaultValues();
   }
 
   ngOnInit() {
@@ -32,60 +36,50 @@ export class CedentePrestatoreComponent implements OnInit, OnChanges {
     this.loadFromData();
   }
 
+  private setDefaultValues() {
+    this.anagrafica = {};
+    this.sede = {};
+    this.stabile = {};
+    this.iscrizioneREA = {};
+    this.contatti = {};
+    this.albo = {};
+    this.riferimentoAmministrazione = null;
+  }
+
   private loadFromData() {
     if (_.isNil(this.data)) {
+      this.setDefaultValues();
       return;
     }
 
     this.loadAnagraficaFormData(this.data.datiAnagrafici);
+    this.sede = _.isNil(this.data.sede) ? {} : this.data.sede;
+    this.anagrafica = this.data.datiAnagrafici;
+    this.stabile = _.isNil(this.data.stabileOrganizzazione) ? {} : this.data.stabileOrganizzazione;
+    this.iscrizioneREA = _.isNil(this.data.iscrizioneREA) ? {} : this.data.iscrizioneREA;
+    this.contatti = _.isNil(this.data.contatti) ? {} : this.data.contatti;
+    this.riferimentoAmministrazione = this.data.riferimentoAmministrazione;
   }
 
   private loadAnagraficaFormData(dati: fe.DatiAnagraficiCedente) {
     if (_.isNil(dati)) {
-      this.anagrafica = { personaFisica: false };
+      this.albo = {};
       return;
     }
 
-    const form: AnagraficaFormData = { personaFisica: false };
-    if (!_.isNil(dati.idFiscaleIVA)) {
-      form.idPaese = dati.idFiscaleIVA.idPaese;
-      form.idCodice = dati.idFiscaleIVA.idCodice;
-    }
-
-    if (!_.isNil(dati.anagrafica)) {
-      form.codEORI = dati.anagrafica.codEORI;
-      form.denominazione = dati.anagrafica.denominazione;
-      form.cognome = dati.anagrafica.cognome;
-      form.nome = dati.anagrafica.nome;
-      form.titolo = dati.anagrafica.titolo;
-    }
-
-    form.codiceFiscale = dati.codiceFiscale;
+    const form: AlboFormData = {};
     form.alboProfessionale = dati.alboProfessionale;
     form.dataIscrizioneAlbo = dati.dataIscrizioneAlbo;
     form.provinciaAlbo = dati.provinciaAlbo;
     form.numeroIscrizioneAlbo = dati.numeroIscrizioneAlbo;
     form.regimeFiscale = dati.regimeFiscale;
-    form.personaFisica = _.isEmpty(form.denominazione);
-
-    this.anagrafica = form;
+    this.albo = form;
   }
 }
 
 
 
-export interface AnagraficaFormData {
-  personaFisica: boolean;
-  idPaese?: string;
-  idCodice?: string;
-  codiceFiscale?: string;
-  codEORI?: string;
-
-  denominazione?: string;
-  cognome?: string;
-  nome?: string;
-  titolo?: string;
-
+export interface AlboFormData {
   alboProfessionale?: string;
   dataIscrizioneAlbo?: Date;
   numeroIscrizioneAlbo?: string;

@@ -10,6 +10,7 @@ import { CessionarioCommittenteComponent } from './cessionario-committente/cessi
 import { BloccoIndirizzoComponent } from './blocco-indirizzo/blocco-indirizzo.component';
 import { IscrizioneReaComponent } from './iscrizione-rea/iscrizione-rea.component';
 import { XmlLoaderComponent } from './xml-loader/xml-loader.component';
+import { BloccoAnagraficaComponent } from './blocco-anagrafica/blocco-anagrafica.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { XmlLoaderComponent } from './xml-loader/xml-loader.component';
     CessionarioCommittenteComponent,
     BloccoIndirizzoComponent,
     IscrizioneReaComponent,
-    XmlLoaderComponent
+    XmlLoaderComponent,
+    BloccoAnagraficaComponent
   ],
   exports: [
     EditorComponent

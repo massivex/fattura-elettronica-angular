@@ -65,7 +65,7 @@ export class FatturaElettronicaParserService {
   }
 
   public getRappresentanteFiscale(): fe.RappresentanteFiscale {
-    return null;
+    return {};
   }
 
   private getIndirizzo(xml: XMLDocument, root: string): fe.Indirizzo {

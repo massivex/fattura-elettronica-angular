@@ -1,12 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CedentePrestatoreComponent, AnagraficaFormData } from './cedente-prestatore.component';
+import { CedentePrestatoreComponent, AlboFormData } from './cedente-prestatore.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BloccoIndirizzoComponent } from '../blocco-indirizzo/blocco-indirizzo.component';
 import { IscrizioneReaComponent } from '../iscrizione-rea/iscrizione-rea.component';
 import { SimpleChange } from '@angular/core';
 import * as fe from '../../shared/fattura-elettronica.model';
+import { BloccoAnagraficaComponent } from '../blocco-anagrafica/blocco-anagrafica.component';
 
 describe('CedentePrestatoreComponent', () => {
   let component: CedentePrestatoreComponent;
@@ -14,7 +15,9 @@ describe('CedentePrestatoreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CedentePrestatoreComponent, BloccoIndirizzoComponent, IscrizioneReaComponent],
+      declarations: [
+        CedentePrestatoreComponent, BloccoIndirizzoComponent,
+        IscrizioneReaComponent, BloccoAnagraficaComponent],
       imports: [FormsModule, NgbModule.forRoot()]
     })
       .compileComponents();
@@ -37,7 +40,7 @@ describe('CedentePrestatoreComponent', () => {
         component.data = undefined;
         component.ngOnChanges({ data: new SimpleChange(undefined, {}, true) });
         fixture.detectChanges();
-        expect(component.anagrafica).toEqual({ personaFisica: false });
+        expect(component.albo).toEqual({ });
       });
     });
 
@@ -47,7 +50,7 @@ describe('CedentePrestatoreComponent', () => {
         component.data = { datiAnagrafici: null };
         component.ngOnChanges({ data: new SimpleChange(undefined, {}, true) });
         fixture.detectChanges();
-        expect(component.anagrafica).toEqual({ personaFisica: false });
+        expect(component.albo).toEqual({ });
       });
     });
 
@@ -71,31 +74,20 @@ describe('CedentePrestatoreComponent', () => {
 
       const expected = {
         alboProfessionale: 'alboProfessionale',
-        codEORI: 'codEORI',
-        codiceFiscale: 'codiceFiscale',
-        cognome: 'cognome',
         dataIscrizioneAlbo: new Date(2017, 0, 1),
-        denominazione: 'denominazione',
-        idCodice: 'idCodice',
-        idPaese: 'idPaese',
-        nome: 'nome',
         numeroIscrizioneAlbo: 'numeroIscrizioneAlbo',
-        personaFisica: false,
         provinciaAlbo: 'provinciaAlbo',
-        regimeFiscale: 'regimeFiscale',
-        titolo: 'titolo'
-      } as AnagraficaFormData;
+        regimeFiscale: 'regimeFiscale'
+      } as AlboFormData;
 
       it('should be returned a fullfilled object', () => {
         spyOn(component, 'ngOnChanges').and.callThrough();
         component.data = fulfilledData;
         component.ngOnChanges({ data: new SimpleChange(undefined, fulfilledData, true) });
         fixture.detectChanges();
-        expect(component.anagrafica).toEqual(expected);
+        expect(component.albo).toEqual(expected);
       });
     });
 
   });
-
-  
 });
