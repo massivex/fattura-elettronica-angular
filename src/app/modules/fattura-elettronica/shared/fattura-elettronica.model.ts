@@ -44,6 +44,7 @@ export interface CessionarioCommittente {
     datiAnagrafici?: DatiAnagrafici;
     sede?: Indirizzo;
     stabileOrganizzazione ?: Indirizzo;
+    rappresentanteFiscale?: RappresentanteFiscale;
  }
 
 export interface DatiAnagrafici {

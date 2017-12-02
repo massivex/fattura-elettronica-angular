@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 import * as fe from './fattura-elettronica.model';
 import { XmlParserService } from './xml-parser.service';
+import { XmlLoaderComponent } from '../editor/xml-loader/xml-loader.component';
 
 @Injectable()
 export class FatturaElettronicaParserService {
@@ -55,20 +56,58 @@ export class FatturaElettronicaParserService {
     }
 
     return {
-      datiAnagrafici: this.getDatiAnagraficiCedente(xml, `${root}/DatiAnagrafici`),
-      sede: this.getIndirizzo(xml, `${root}/Sede`),
-      stabileOrganizzazione: this.getIndirizzo(xml, `${root}/StabileOrganizzazione`),
-      iscrizioneREA: this.getIscrizioneREA(xml, `${root}/IscrizioneREA`),
+      datiAnagrafici: this.parseDatiAnagraficiCedente(xml, `${root}/DatiAnagrafici`),
+      sede: this.parseIndirizzo(xml, `${root}/Sede`),
+      stabileOrganizzazione: this.parseIndirizzo(xml, `${root}/StabileOrganizzazione`),
+      iscrizioneREA: this.parseIscrizioneREA(xml, `${root}/IscrizioneREA`),
       contatti: this.getContatti(xml, `${root}/Contatti`),
       riferimentoAmministrazione: this.parser.getText(xml, `${root}/RiferimentoAmministrazione`)
     };
   }
-
   public getRappresentanteFiscale(): fe.RappresentanteFiscale {
-    return {};
+    const root = '//FatturaElettronicaHeader/RappresentanteFiscale[1]';
+    const xml = this.xmlDoc;
+    const rootExists = this.parser.hasNode(xml, root);
+    if (!rootExists) {
+      return null;
+    }
+
+    return this.parseRappresentanteFiscale(xml, root);
   }
 
-  private getIndirizzo(xml: XMLDocument, root: string): fe.Indirizzo {
+  public getCessionarioCommittente(): fe.CessionarioCommittente {
+    const root = '//FatturaElettronicaHeader/CessionarioCommittente[1]';
+    const xml = this.xmlDoc;
+    const rootExists = this.parser.hasNode(xml, root);
+    if (!rootExists) {
+      return null;
+    }
+
+    return this.parseCessionarioCommittente(xml, root);
+  }
+
+  private parseCessionarioCommittente(xml: XMLDocument, root: string): fe.CessionarioCommittente {
+    return {
+      datiAnagrafici: this.parseDatiAnagrafici(xml, `${root}/DatiAnagrafici`),
+      sede: this.parseIndirizzo(xml, `${root}/Sede`),
+      stabileOrganizzazione: this.parseIndirizzo(xml, `${root}/StabileOrganizzazione`),
+      rappresentanteFiscale: this.parseRappresentanteFiscale(xml, `${root}/RappresentanteFiscale`)
+    } as fe.CessionarioCommittente;
+  }
+  private parseRappresentanteFiscale(xml: XMLDocument, root: string): fe.RappresentanteFiscale {
+    let datiAnagrafici: fe.DatiAnagrafici;
+    if (this.parser.hasNode(xml, root)) {
+      datiAnagrafici = {};
+      datiAnagrafici.idFiscaleIVA = this.parseIdFiscaleIva(xml, `${root}/IdFiscaleIVA`);
+      datiAnagrafici.codiceFiscale = this.parser.getText(xml, `${root}/CodiceFiscale`);
+      datiAnagrafici.anagrafica = this.parseAnagrafica(xml, `${root}/Anagrafica`);
+    }
+    return {
+      datiAnagrafici
+    } as fe.RappresentanteFiscale;
+  }
+
+  private parseIndirizzo(xml: XMLDocument, root: string): fe.Indirizzo {
     let indirizzo: fe.Indirizzo;
     if (this.parser.hasNode(xml, root)) {
       indirizzo = {};
@@ -81,14 +120,20 @@ export class FatturaElettronicaParserService {
     }
     return indirizzo;
   }
-  private getDatiAnagraficiCedente(xml: XMLDocument, root: string): fe.DatiAnagraficiCedente {
-    let datiAnagrafici: fe.DatiAnagraficiCedente;
+
+  private parseDatiAnagrafici(xml: XMLDocument, root: string): fe.DatiAnagrafici {
+    let datiAnagrafici: fe.DatiAnagrafici;
     if (this.parser.hasNode(xml, root)) {
       datiAnagrafici = {};
-      datiAnagrafici.idFiscaleIVA = this.getIdFiscaleIva(xml, `${root}/IdFiscaleIVA`);
+      datiAnagrafici.idFiscaleIVA = this.parseIdFiscaleIva(xml, `${root}/IdFiscaleIVA`);
       datiAnagrafici.codiceFiscale = this.parser.getText(xml, `${root}/CodiceFiscale`);
-      datiAnagrafici.regimeFiscale = this.parser.getText(xml, `${root}/RegimeFiscale`);
-      datiAnagrafici.anagrafica = this.getAnagrafica(xml, `${root}/Anagrafica`);
+      datiAnagrafici.anagrafica = this.parseAnagrafica(xml, `${root}/Anagrafica`);
+    }
+    return datiAnagrafici;
+  }
+  private parseDatiAnagraficiCedente(xml: XMLDocument, root: string): fe.DatiAnagraficiCedente {
+    const datiAnagrafici: fe.DatiAnagraficiCedente = this.parseDatiAnagrafici(xml, root);
+    if (!_.isNil(datiAnagrafici)) {
       datiAnagrafici.alboProfessionale = this.parser.getText(xml, `${root}/AlboProfessionale`);
       datiAnagrafici.provinciaAlbo = this.parser.getText(xml, `${root}/ProvinciaAlbo`);
       datiAnagrafici.numeroIscrizioneAlbo = this.parser.getText(xml, `${root}/NumeroIscrizioneAlbo`);
@@ -98,7 +143,7 @@ export class FatturaElettronicaParserService {
     return datiAnagrafici;
   }
 
-  private getAnagrafica(xml: XMLDocument, root: string): fe.Anagrafica {
+  private parseAnagrafica(xml: XMLDocument, root: string): fe.Anagrafica {
     let anagrafica: fe.Anagrafica;
     if (this.parser.hasNode(xml, root)) {
       anagrafica = {};
@@ -111,7 +156,7 @@ export class FatturaElettronicaParserService {
     return anagrafica;
   }
 
-  private getIdFiscaleIva(xml: XMLDocument, root: string): fe.IdFiscaleIVA {
+  private parseIdFiscaleIva(xml: XMLDocument, root: string): fe.IdFiscaleIVA {
     let idFiscaleIVA: fe.IdFiscaleIVA;
     if (this.parser.hasNode(xml, root)) {
       const idPaese = this.parser.getText(xml, `${root}/IdPaese`);
@@ -121,7 +166,7 @@ export class FatturaElettronicaParserService {
     return idFiscaleIVA;
   }
 
-  private getIscrizioneREA(xml: XMLDocument, root: string): fe.IscrizioneREA {
+  private parseIscrizioneREA(xml: XMLDocument, root: string): fe.IscrizioneREA {
     let iscrizioneREA: fe.IscrizioneREA;
     if (this.parser.hasNode(xml, root)) {
       iscrizioneREA = {};

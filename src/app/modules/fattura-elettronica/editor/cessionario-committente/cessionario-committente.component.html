@@ -1,1 +1,25 @@
-<p>Work in progress...</p>
+<ngb-tabset>
+    <ngb-tab title="Dati anagrafici">
+        <ng-template ngbTabContent>
+            <div class="tab-content-bordered">
+                <form>
+                    <mx-editor-blocco-anagrafica [data]="anagrafica"></mx-editor-blocco-anagrafica>
+                </form>
+            </div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Sede">
+        <ng-template ngbTabContent>
+            <div class="tab-content-bordered">
+                <mx-editor-blocco-indirizzo [data]="sede"></mx-editor-blocco-indirizzo>
+            </div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Stabile organizzazione">
+        <ng-template ngbTabContent>
+            <div class="tab-content-bordered">
+                <mx-editor-blocco-indirizzo [data]="stabile"></mx-editor-blocco-indirizzo>
+            </div>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>

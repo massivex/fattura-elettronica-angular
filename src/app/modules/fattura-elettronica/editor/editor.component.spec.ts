@@ -80,4 +80,8 @@ class MockFatturaElettronicaParserService {
   public getRappresentanteFiscale(): fe.CedentePrestatore {
     return { riferimentoAmministrazione: 'riferimentoAmministrazione' };
   }
+
+  public getCessionarioCommittente(): fe.CessionarioCommittente {
+    return { };
+  }
 }

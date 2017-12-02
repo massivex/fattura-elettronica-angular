@@ -18,6 +18,7 @@ export class EditorComponent implements OnInit {
   public datiCedente: fe.CedentePrestatore;
   public datiTrasmissione: fe.DatiTrasmissione;
   public datiRappresentanteFiscale: fe.RappresentanteFiscale;
+  public datiCessionario: fe.CessionarioCommittente;
 
   constructor(
     private fatturaParser: FatturaElettronicaParserService
@@ -31,6 +32,7 @@ export class EditorComponent implements OnInit {
     this.datiTrasmissione = this.fatturaParser.getDatiTrasmissione();
     this.datiCedente = this.fatturaParser.getCedentePrestatore();
     this.datiRappresentanteFiscale = this.fatturaParser.getRappresentanteFiscale();
+    this.datiCessionario = this.fatturaParser.getCessionarioCommittente();
     if (!_.isNil(this.datiTrasmissione) && !_.isNil(this.datiCedente)) {
       this.editorTabs.select('intestazione');
     }
