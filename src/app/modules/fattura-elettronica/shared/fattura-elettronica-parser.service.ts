@@ -43,7 +43,7 @@ export class FatturaElettronicaParserService {
         email: this.parser.getText(xml, `${root}/ContattiTrasmittente/Email`),
         telefono: this.parser.getText(xml, `${root}/ContattiTrasmittente/Telefono`)
       },
-      pecDestinatario: this.parser.getText(xml, `${root}/PecDestinatario`)
+      pecDestinatario: this.parser.getText(xml, `${root}/PECDestinatario`)
     };
   }
 
@@ -75,6 +75,17 @@ export class FatturaElettronicaParserService {
     return this.parseRappresentanteFiscale(xml, root);
   }
 
+  public getTerzoIntermediario(): fe.RappresentanteFiscale {
+    const root = '//FatturaElettronicaHeader/TerzoIntermediarioOSoggettoEmittente[1]';
+    const xml = this.xmlDoc;
+    const rootExists = this.parser.hasNode(xml, root);
+    if (!rootExists) {
+      return null;
+    }
+
+    return this.parseTerzoIntermediario(xml, root);
+  }
+
   public getCessionarioCommittente(): fe.CessionarioCommittente {
     const root = '//FatturaElettronicaHeader/CessionarioCommittente[1]';
     const xml = this.xmlDoc;
@@ -95,16 +106,15 @@ export class FatturaElettronicaParserService {
     } as fe.CessionarioCommittente;
   }
   private parseRappresentanteFiscale(xml: XMLDocument, root: string): fe.RappresentanteFiscale {
-    let datiAnagrafici: fe.DatiAnagrafici;
-    if (this.parser.hasNode(xml, root)) {
-      datiAnagrafici = {};
-      datiAnagrafici.idFiscaleIVA = this.parseIdFiscaleIva(xml, `${root}/IdFiscaleIVA`);
-      datiAnagrafici.codiceFiscale = this.parser.getText(xml, `${root}/CodiceFiscale`);
-      datiAnagrafici.anagrafica = this.parseAnagrafica(xml, `${root}/Anagrafica`);
-    }
     return {
-      datiAnagrafici
+      datiAnagrafici: this.parseDatiAnagrafici(xml, `${root}/DatiAnagrafici`)
     } as fe.RappresentanteFiscale;
+  }
+
+  private parseTerzoIntermediario(xml: XMLDocument, root: string): fe.TerzoIntermediario {
+    return {
+      datiAnagrafici: this.parseDatiAnagrafici(xml, `${root}/DatiAnagrafici`)
+    } as fe.TerzoIntermediario;
   }
 
   private parseIndirizzo(xml: XMLDocument, root: string): fe.Indirizzo {

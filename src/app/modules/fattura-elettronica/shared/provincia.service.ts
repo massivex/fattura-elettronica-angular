@@ -87,7 +87,7 @@ const provincie = [
   { sigla: 'RE', nome: 'Reggio-Emilia', regione: 'Emilia Romagna' },
   { sigla: 'RI', nome: 'Rieti', regione: 'Lazio' },
   { sigla: 'RN', nome: 'Rimini', regione: 'Emilia Romagna' },
-  { sigla: 'Roma', nome: 'Roma', regione: 'Lazio' },
+  { sigla: 'RM', nome: 'Roma', regione: 'Lazio' },
   { sigla: 'RO', nome: 'Rovigo', regione: 'Veneto' },
   { sigla: 'SA', nome: 'Salerno', regione: 'Campania' },
   { sigla: 'SS', nome: 'Sassari', regione: 'Sardegna' },

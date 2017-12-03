@@ -15,7 +15,7 @@
           </ngb-panel>
           <ngb-panel title="Rappresentante fiscale">
             <ng-template ngbPanelContent>
-              <mx-editor-rappresentante-fiscale [data]="datiRappresentateFiscale"></mx-editor-rappresentante-fiscale>
+              <mx-editor-rappresentante-fiscale [data]="datiRappresentanteFiscale"></mx-editor-rappresentante-fiscale>
             </ng-template>
           </ngb-panel>
           <ngb-panel title="Cessionario committente">
@@ -23,6 +23,11 @@
               <mx-editor-cessionario-committente [data]="datiCessionario"></mx-editor-cessionario-committente>
             </ng-template>
           </ngb-panel>          
+          <ngb-panel title="Terzo intermediario">
+            <ng-template ngbPanelContent>
+              <mx-editor-terzo-intermediario [data]="datiTerzoIntermediario"></mx-editor-terzo-intermediario>
+            </ng-template>
+          </ngb-panel>  
         </ngb-accordion>
       </ng-template>
     </ngb-tab>

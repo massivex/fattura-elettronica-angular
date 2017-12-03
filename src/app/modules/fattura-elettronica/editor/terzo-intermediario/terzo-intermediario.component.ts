@@ -4,13 +4,13 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import * as _ from 'lodash';
 
 @Component({
-  selector: 'mx-editor-rappresentante-fiscale',
-  templateUrl: './rappresentante-fiscale.component.html',
-  styleUrls: ['./rappresentante-fiscale.component.scss']
+  selector: 'mx-editor-terzo-intermediario',
+  templateUrl: './terzo-intermediario.component.html',
+  styleUrls: ['./terzo-intermediario.component.scss']
 })
-export class RappresentanteFiscaleComponent implements OnInit, OnChanges {
+export class TerzoIntermediarioComponent implements OnInit, OnChanges {
   @Input()
-  public data: fe.RappresentanteFiscale;
+  public data: fe.TerzoIntermediario;
 
   public datiAnagrafici: fe.DatiAnagrafici;
 
@@ -30,4 +30,5 @@ export class RappresentanteFiscaleComponent implements OnInit, OnChanges {
 
     this.datiAnagrafici = this.data.datiAnagrafici;
   }
+
 }

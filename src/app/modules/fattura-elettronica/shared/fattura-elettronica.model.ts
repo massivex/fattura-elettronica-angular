@@ -33,6 +33,9 @@ export interface RappresentanteFiscale {
     datiAnagrafici?: DatiAnagrafici;
 }
 
+export interface TerzoIntermediario {
+    datiAnagrafici?: DatiAnagrafici;
+}
 export interface RappresentanteFiscaleCessionario {
     idFiscaleIVA?: IdFiscaleIVA;
     denominazione?: string;

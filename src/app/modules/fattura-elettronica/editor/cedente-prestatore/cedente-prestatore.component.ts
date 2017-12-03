@@ -6,6 +6,7 @@ import * as _ from 'lodash';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 import { AnagraficaFormData } from '../blocco-anagrafica/blocco-anagrafica.component';
+import { ProvinciaService, Provincia } from '../../shared/provincia.service';
 
 @Component({
   selector: 'mx-editor-cedente-prestatore',
@@ -24,12 +25,17 @@ export class CedentePrestatoreComponent implements OnInit, OnChanges {
   public contatti: fe.Contatti;
   public albo: AlboFormData;
   public riferimentoAmministrazione: string;
+  public provincie: Provincia[];
 
-  constructor() {
+  constructor(
+    private provinciaService: ProvinciaService
+  ) {
+    this.provincie = [];
     this.setDefaultValues();
   }
 
   ngOnInit() {
+    this.provincie = this.provinciaService.getList();
   }
 
   ngOnChanges(changes: SimpleChanges): void {

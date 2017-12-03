@@ -24,7 +24,7 @@ describe('FatturaElettronicaParserService', () => {
         <IdPaese>IT</IdPaese>
         <IdCodice>12345678901</IdCodice>
       </IdTrasmittente>
-      <PecDestinatario>pecDestinatario</PecDestinatario>
+      <PECDestinatario>pecDestinatario</PECDestinatario>
       <ContattiTrasmittente>
         <Email>email</Email>
         <Telefono>telefono</Telefono>

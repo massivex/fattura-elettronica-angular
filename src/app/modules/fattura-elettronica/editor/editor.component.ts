@@ -12,13 +12,14 @@ import * as fe from '../shared/fattura-elettronica.model';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  
+
   @ViewChild(NgbTabset) editorTabs: NgbTabset;
 
   public datiCedente: fe.CedentePrestatore;
   public datiTrasmissione: fe.DatiTrasmissione;
   public datiRappresentanteFiscale: fe.RappresentanteFiscale;
   public datiCessionario: fe.CessionarioCommittente;
+  public datiTerzoIntermediario: fe.TerzoIntermediario;
 
   constructor(
     private fatturaParser: FatturaElettronicaParserService
@@ -33,6 +34,8 @@ export class EditorComponent implements OnInit {
     this.datiCedente = this.fatturaParser.getCedentePrestatore();
     this.datiRappresentanteFiscale = this.fatturaParser.getRappresentanteFiscale();
     this.datiCessionario = this.fatturaParser.getCessionarioCommittente();
+    this.datiTerzoIntermediario = this.fatturaParser.getTerzoIntermediario();
+
     if (!_.isNil(this.datiTrasmissione) && !_.isNil(this.datiCedente)) {
       this.editorTabs.select('intestazione');
     }

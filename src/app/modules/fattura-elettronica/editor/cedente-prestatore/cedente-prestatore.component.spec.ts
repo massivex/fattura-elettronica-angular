@@ -8,6 +8,7 @@ import { IscrizioneReaComponent } from '../iscrizione-rea/iscrizione-rea.compone
 import { SimpleChange } from '@angular/core';
 import * as fe from '../../shared/fattura-elettronica.model';
 import { BloccoAnagraficaComponent } from '../blocco-anagrafica/blocco-anagrafica.component';
+import { ProvinciaService } from '../../shared/provincia.service';
 
 describe('CedentePrestatoreComponent', () => {
   let component: CedentePrestatoreComponent;
@@ -17,8 +18,12 @@ describe('CedentePrestatoreComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         CedentePrestatoreComponent, BloccoIndirizzoComponent,
-        IscrizioneReaComponent, BloccoAnagraficaComponent],
-      imports: [FormsModule, NgbModule.forRoot()]
+        IscrizioneReaComponent, BloccoAnagraficaComponent
+      ],
+      imports: [FormsModule, NgbModule.forRoot()],
+      providers: [
+        ProvinciaService
+      ]
     })
       .compileComponents();
   }));

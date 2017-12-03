@@ -13,6 +13,7 @@ import { XmlLoaderComponent } from './xml-loader/xml-loader.component';
 import { FatturaElettronicaParserService } from '../shared/fattura-elettronica-parser.service';
 import * as fe from '../shared/fattura-elettronica.model';
 import { BloccoAnagraficaComponent } from './blocco-anagrafica/blocco-anagrafica.component';
+import { TerzoIntermediarioComponent } from './terzo-intermediario/terzo-intermediario.component';
 
 
 describe('EditorComponent', () => {
@@ -25,7 +26,7 @@ describe('EditorComponent', () => {
         EditorComponent, DatiTrasmissioneComponent, CedentePrestatoreComponent,
         RappresentanteFiscaleComponent, CessionarioCommittenteComponent,
         BloccoIndirizzoComponent, IscrizioneReaComponent, XmlLoaderComponent,
-        BloccoAnagraficaComponent
+        BloccoAnagraficaComponent, TerzoIntermediarioComponent
       ],
       imports: [NgbModule.forRoot(), FormsModule],
       providers: [
@@ -82,6 +83,10 @@ class MockFatturaElettronicaParserService {
   }
 
   public getCessionarioCommittente(): fe.CessionarioCommittente {
+    return { };
+  }
+
+  public getTerzoIntermediario(): fe.TerzoIntermediario {
     return { };
   }
 }
