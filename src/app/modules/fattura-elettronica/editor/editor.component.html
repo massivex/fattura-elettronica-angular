@@ -22,12 +22,26 @@
             <ng-template ngbPanelContent>
               <mx-editor-cessionario-committente [data]="datiCessionario"></mx-editor-cessionario-committente>
             </ng-template>
-          </ngb-panel>          
+          </ngb-panel>
           <ngb-panel title="Terzo intermediario">
             <ng-template ngbPanelContent>
               <mx-editor-terzo-intermediario [data]="datiTerzoIntermediario"></mx-editor-terzo-intermediario>
             </ng-template>
-          </ngb-panel>  
+          </ngb-panel>
+          <ngb-panel title="Soggetto emittente">
+            <ng-template ngbPanelContent>
+              <form>
+                <div class="form-group col-md-3">
+                  <label for="mx-editor-soggetto-emittente">Soggetto emittente</label>
+                  <select id="mx-editor-soggetto-emittente" name="soggetto-emittente" [(ngModel)]="soggettoEmittente" class="form-control">
+                    <option [value]="null"></option>
+                    <option value="CC">Cessionario/Committente</option>
+                    <option value="TZ">Soggetto Terzo</option>
+                  </select>
+                </div>
+              </form>
+            </ng-template>
+          </ngb-panel>
         </ngb-accordion>
       </ng-template>
     </ngb-tab>

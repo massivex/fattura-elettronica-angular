@@ -97,6 +97,17 @@ export class FatturaElettronicaParserService {
     return this.parseCessionarioCommittente(xml, root);
   }
 
+  public getSoggettoEmittente(): string {
+    const root = '//FatturaElettronicaHeader/SoggettoEmittente[1]';
+    const xml = this.xmlDoc;
+    const rootExists = this.parser.hasNode(xml, root);
+    if (!rootExists) {
+      return null;
+    }
+
+    return this.parser.getText(xml, root);
+  }
+
   private parseCessionarioCommittente(xml: XMLDocument, root: string): fe.CessionarioCommittente {
     return {
       datiAnagrafici: this.parseDatiAnagrafici(xml, `${root}/DatiAnagrafici`),

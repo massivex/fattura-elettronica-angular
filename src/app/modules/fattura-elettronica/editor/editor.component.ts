@@ -20,10 +20,13 @@ export class EditorComponent implements OnInit {
   public datiRappresentanteFiscale: fe.RappresentanteFiscale;
   public datiCessionario: fe.CessionarioCommittente;
   public datiTerzoIntermediario: fe.TerzoIntermediario;
+  public soggettoEmittente: string;
 
   constructor(
     private fatturaParser: FatturaElettronicaParserService
-  ) { }
+  ) {
+    this.soggettoEmittente = null;
+  }
 
   ngOnInit() {
   }
@@ -35,6 +38,7 @@ export class EditorComponent implements OnInit {
     this.datiRappresentanteFiscale = this.fatturaParser.getRappresentanteFiscale();
     this.datiCessionario = this.fatturaParser.getCessionarioCommittente();
     this.datiTerzoIntermediario = this.fatturaParser.getTerzoIntermediario();
+    this.soggettoEmittente = this.fatturaParser.getSoggettoEmittente();
 
     if (!_.isNil(this.datiTrasmissione) && !_.isNil(this.datiCedente)) {
       this.editorTabs.select('intestazione');
