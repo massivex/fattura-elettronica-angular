@@ -89,4 +89,8 @@ class MockFatturaElettronicaParserService {
   public getTerzoIntermediario(): fe.TerzoIntermediario {
     return { };
   }
+
+  public getSoggettoEmittente(): string {
+    return null;
+  }
 }
