@@ -83,8 +83,6 @@ export class CedentePrestatoreComponent implements OnInit, OnChanges {
   }
 }
 
-
-
 export interface AlboFormData {
   alboProfessionale?: string;
   dataIscrizioneAlbo?: Date;
