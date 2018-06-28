@@ -1,70 +1,33 @@
 <form>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <label for="mx-input-id-paese">Identificativo Paese</label>
-        <input type="text" class="form-control"
-          [(ngModel)]="trasmissione.idPaese"
-          name="idPaese"          
-          id="mx-input-id-paese" placeholder="ID Paese" value="IT">
-      </div>
-      <div class="form-group col-md-9">
-        <label for="mx-input-codice-fiscale">Codice fiscale</label>
-        <input type="text" class="form-control"
-          [(ngModel)]="trasmissione.idCodice"
-          name="idCodice"          
-          id="mx-input-codice-fiscale" placeholder="Codice fiscale">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <label for="mx-input-progressivo-invio">Progressivo invio</label>
-        <input type="text" class="form-control"
-          [(ngModel)]="trasmissione.progressivoInvio"
-          name="progressivoInvio"                
-          id="mx-input-progressivo-invio" placeholder="Progressivo invio">
-      </div>
-      <div class="form-group col-md-2">
-        <label for="mx-input-formato-trasmissione">Formato trasmissione</label>
-        <input type="text" class="form-control"
-          [(ngModel)]="trasmissione.formatoTrasmissione"
-          name="formatoTrasmissione"                      
-          id="mx-input-formato-trasmissione" placeholder="Formato trasmissione">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="mx-input-codice-destinatario">Codice destinatario</label>
-        <input type="text" class="form-control"
-          [(ngModel)]="trasmissione.codiceDestinatario"
-          name="codiceDestinatario"                              
-          id="mx-input-codice-destinatario" placeholder="Codice destinatario">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="mx-input-pec-destinatario">PEC destinatario</label>
-        <input type="text" class="form-control"
-          [(ngModel)]="trasmissione.pecDestinatario"
-          name="pecDestinatario"                              
-          id="mx-input-pec-destinatario" placeholder="PEC Destinatario">
-      </div>
-      
-    </div>
-    <div class="form-group row">
-      <label for="inputEmail3" class="col-sm-2 col-form-label col-md-3">
-        <b>Contatti trasmittente</b>
-      </label>
-    </div>
-    <div class="form-group row">
-      <div class="form-group col-md-3">
-        <label for="mx-input-telefono-trasmittente">Telefono</label>
-        <input type="text" class="form-control"
-          [(ngModel)]="trasmissione.telefono"
-          name="telefono"                                    
-          id="mx-input-telefono-trasmittente" placeholder="Telefono">
-      </div>
-      <div class="form-group col-md-6">
-          <label for="mx-input-email-trasmittente">Email</label>
-          <input type="text" class="form-control"
-            [(ngModel)]="trasmissione.email"
-            name="email"                                              
-            id="mx-input-email-trasmittente" placeholder="Email">
-        </div>                  
-    </div>
-  </form>
+  <mat-form-field>
+    <input matInput [(ngModel)]="trasmissione.idPaese" name="idPaese" placeholder="ID Paese">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="trasmissione.idCodice" name="idCodice" placeholder="ID Trasmittente">
+  </mat-form-field>
+  <mat-divider class="mat-input-divider"></mat-divider>
+  <mat-form-field>
+    <input matInput [(ngModel)]="trasmissione.progressivoInvio" name="progressivoInvio" placeholder="Progressivo invio">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="trasmissione.formatoTrasmissione" name="formatoTrasmissione" placeholder="Formato trasmissione">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="trasmissione.codiceDestinatario" name="codiceDestinatario" placeholder="Codice destinatario">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="trasmissione.pecDestinatario" name="pecDestinatario" placeholder="PEC destinatario">
+  </mat-form-field>
+  <mat-divider class="mat-input-divider"></mat-divider>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label col-md-3">
+      <b>Contatti trasmittente</b>
+    </label>
+  </div>
+  <mat-form-field>
+    <input matInput [(ngModel)]="trasmissione.telefono" name="telefono" placeholder="Telefono">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="trasmissione.email" name="email" placeholder="Email">
+  </mat-form-field>
+</form>

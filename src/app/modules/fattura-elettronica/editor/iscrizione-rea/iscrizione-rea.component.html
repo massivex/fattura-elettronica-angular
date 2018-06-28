@@ -1,54 +1,33 @@
 <form>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="mx-editor-rea-ufficio">Ufficio</label>
-      <select id="mx-editor-rea-ufficio"
-        name="ufficio"
-        [(ngModel)]="data.ufficio"
-        class="form-control">
-        <option [value]="null">
-          <option *ngFor="let provincia of provincie" [value]="provincia.sigla">
-            {{ provincia.nome }}
-          </option>
-      </select>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-2">
-      <label for="mx-editor-rea-numero">Numero REA</label>
-      <input id="mx-editor-rea-numero"
-        name="numeroREA"
-        [(ngModel)]="data.numeroREA"    
-        type="text" class="form-control" placeholder="Numero REA">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="mx-editor-rea-capitale">Capitale sociale</label>
-      <input id="mx-editor-rea-capitale"
-        name="capitaleSociale"
-        [(ngModel)]="data.capitaleSociale"        
-        type="text" class="form-control" placeholder="Capitale sociale">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="mx-editor-rea-socio">Composizione soci</label>
-      <select id="mx-editor-rea-socio"
-        name="socioUnico"
-        [(ngModel)]="data.socioUnico"            
-        class="form-control">
-          <option [value]="null"></option>
-          <option value="SU">Socio unico</option>
-          <option value="SM">Socio multipli</option>
-        </select>
-    </div>
-    <div class="form-group col-md-3">
-        <label for="mx-editor-rea-liquidazione">In liquidazione</label>
-        <select id="mx-editor-rea-liquidazione"
-          name="statoLiquidazione"
-          [(ngModel)]="data.statoLiquidazione"                    
-          class="form-control">
-            <option [value]="null"></option>
-            <option value="LS">Sì</option>
-            <option value="LN">No</option>
-          </select>
-      </div>    
-  </div> 
+
+  <mat-form-field>
+    <mat-select placeholder="Ufficio" name="ufficio" [(ngModel)]="data.ufficio">
+      <mat-option [value]="null"></mat-option>
+      <mat-option *ngFor="let provincia of provincie" [value]="provincia.sigla">{{ provincia.nome }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.numeroREA" name="numeroREA" placeholder="Numero REA">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.capitaleSociale" name="capitaleSociale" placeholder="Capitale sociale">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Composizione soci" name="socioUnico" [(ngModel)]="data.socioUnico">
+      <mat-option [value]="null"></mat-option>
+      <mat-option value="SU">Socio unico</mat-option>
+      <mat-option value="SM">Socio multipli</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="In liquidazione" name="statoLiquidazione" [(ngModel)]="data.statoLiquidazione">
+      <mat-option [value]="null"></mat-option>
+      <mat-option value="LS">Sì</mat-option>
+      <mat-option value="LN">No</mat-option>
+    </mat-select>
+  </mat-form-field>
 </form>

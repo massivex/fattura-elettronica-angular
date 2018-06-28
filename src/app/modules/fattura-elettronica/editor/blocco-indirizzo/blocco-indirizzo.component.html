@@ -1,57 +1,33 @@
 <form>
-    <div class="form-row">
-      <div class="form-group col-md-8">
-        <label for="mx-editor-indirizzo">Indirizzo</label>
-        <input id="mx-editor-indirizzo" 
-          name="indirizzo"
-          [(ngModel)]="data.indirizzo"
-          type="text" class="form-control" placeholder="Indirizzo">
-      </div>
-      <div class="form-group col-md-2">
-        <label for="mx-editor-civico">Civico</label>
-        <input id="mx-editor-civico"
-          name="civico"
-          [(ngModel)]="data.numeroCivico"      
-          type="text" class="form-control" placeholder="Civico">
-      </div>
-      <div class="form-group col-md-2">
-        <label for="mx-editor-cap">CAP</label>
-        <input id="mx-editor-cap"
-          name="cap"
-          [(ngModel)]="data.cap"            
-          type="text" class="form-control" placeholder="CAP">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="mx-editor-comune">Comune</label>
-        <input id="mx-editor-comune"
-          name="comune"
-          [(ngModel)]="data.comune"
-          type="text" class="form-control" placeholder="Comune">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="mx-editor-provincia">Provincia</label>
-        <select  id="mx-editor-provincia"
-          name="provincia"
-          [(ngModel)]="data.provincia"      
-          class="form-control">
-          <option [value]="null">
-            <option *ngFor="let provincia of provincie" [value]="provincia.sigla">
-              {{ provincia.nome }}
-            </option>
-        </select>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="mx-editor-nazione">Nazione</label>
-        <input id="mx-editor-nazione"
-          name="nazione"
-          [(ngModel)]="data.nazione"            
-          type="text" class="form-control" placeholder="Nazione">
-      </div>
-    </div>
-  </form>
+  <mat-form-field style="width:400px">
+    <input matInput [(ngModel)]="data.indirizzo" name="indirizzo" placeholder="Indirizzo">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.numeroCivico" name="numeroCivico" placeholder="Civico">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.cap" name="cap" placeholder="CAP">
+  </mat-form-field>
+
+  <mat-divider class="mat-input-divider"></mat-divider>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.comune" name="comune" placeholder="Comune">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Provincia Albo" name="provincia" [(ngModel)]="data.provincia">
+      <mat-option [value]="null"></mat-option>
+      <mat-option *ngFor="let provincia of provincie" [value]="provincia.sigla">{{ provincia.nome }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-divider class="mat-input-divider"></mat-divider>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.nazione" name="nazione" placeholder="Nazione">
+  </mat-form-field>
+
+</form>

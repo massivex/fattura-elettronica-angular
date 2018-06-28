@@ -1,81 +1,87 @@
 <div class="mx-editor">
-  <ngb-tabset #editorTabs="ngbTabset">
-    <ngb-tab title="Intestazione" id="intestazione">
-      <ng-template ngbTabContent>
-        <ngb-accordion [closeOthers]="true" activeIds="ngb-panel-0">
-          <ngb-panel id="ngb-panel-0" title="Dati trasmissione">
-            <ng-template ngbPanelContent>
-              <mx-editor-dati-trasmissione [data]="datiTrasmissione"></mx-editor-dati-trasmissione>
-            </ng-template>
-          </ngb-panel>
-          <ngb-panel title="Cedente prestatore">
-            <ng-template ngbPanelContent>
-              <mx-editor-cedente-prestatore [data]="datiCedente"></mx-editor-cedente-prestatore>
-            </ng-template>
-          </ngb-panel>
-          <ngb-panel title="Rappresentante fiscale">
-            <ng-template ngbPanelContent>
-              <mx-editor-rappresentante-fiscale [data]="datiRappresentanteFiscale"></mx-editor-rappresentante-fiscale>
-            </ng-template>
-          </ngb-panel>
-          <ngb-panel title="Cessionario committente">
-            <ng-template ngbPanelContent>
-              <mx-editor-cessionario-committente [data]="datiCessionario"></mx-editor-cessionario-committente>
-            </ng-template>
-          </ngb-panel>
-          <ngb-panel title="Terzo intermediario">
-            <ng-template ngbPanelContent>
-              <mx-editor-terzo-intermediario [data]="datiTerzoIntermediario"></mx-editor-terzo-intermediario>
-            </ng-template>
-          </ngb-panel>
-          <ngb-panel title="Soggetto emittente">
-            <ng-template ngbPanelContent>
-              <form>
-                <div class="form-group col-md-3">
-                  <label for="mx-editor-soggetto-emittente">Soggetto emittente</label>
-                  <select id="mx-editor-soggetto-emittente" name="soggetto-emittente" [(ngModel)]="soggettoEmittente" class="form-control">
-                    <option [value]="null"></option>
-                    <option value="CC">Cessionario/Committente</option>
-                    <option value="TZ">Soggetto Terzo</option>
-                  </select>
-                </div>
-              </form>
-            </ng-template>
-          </ngb-panel>
-        </ngb-accordion>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle>
-        <b>Corpo</b>
-      </ng-template>
-      <ng-template ngbTabContent>
-        <p>Work in progress...</p>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle>
-        <b>XML</b>
-      </ng-template>
-      <ng-template ngbTabContent>
-        <mx-editor-xml-loader (loaded)="onXmlLoaded($event)"></mx-editor-xml-loader>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle>
-        <b>Errori</b>
-      </ng-template>
-      <ng-template ngbTabContent>
-        <p>Work in progress...</p>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle>
-        <b>Versione</b>
-      </ng-template>
-      <ng-template ngbTabContent>
-        <p>Work in progress...</p>
-      </ng-template>
-    </ngb-tab>
-  </ngb-tabset>
+  <mat-tab-group>
+    <mat-tab label="Intestazione">
+      <div>
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Dati trasmissione
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mx-editor-dati-trasmissione [data]="datiTrasmissione"></mx-editor-dati-trasmissione>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Cedente prestatore
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mx-editor-cedente-prestatore [data]="datiCedente"></mx-editor-cedente-prestatore>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Rappresentante fiscale
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mx-editor-rappresentante-fiscale [data]="datiRappresentanteFiscale"></mx-editor-rappresentante-fiscale>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Cessionario committente
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mx-editor-cessionario-committente [data]="datiCessionario"></mx-editor-cessionario-committente>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Terzo intermediario
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mx-editor-terzo-intermediario [data]="datiTerzoIntermediario"></mx-editor-terzo-intermediario>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+
+              <mat-panel-title>
+                Soggetto emittente
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <form>
+              <mat-form-field>
+                <mat-select placeholder="Soggetto emittente" name="soggettoEmittente" [(ngModel)]="soggettoEmittente">
+                  <mat-option [value]="null"></mat-option>
+                  <mat-option value="CC">Cessionario/Committente</mat-option>
+                  <mat-option value="TZ">Soggetto Terzo</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </form>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-tab>
+    <mat-tab label="Corpo">
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span>Elenco documenti</span>
+          <span style="flex: 1 1 auto;"></span>
+          <mat-icon style="cursor: pointer;" fontSet="fa" fontIcon="fa-plus"></mat-icon>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </mat-tab>
+    <mat-tab label="XML">
+      WIP
+    </mat-tab>
+    <mat-tab label="Errori">
+      WIP
+    </mat-tab>
+    <mat-tab label="Versione">
+      WIP
+    </mat-tab>
+  </mat-tab-group>
 </div>
