@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import { AppSettings } from './app.settings';
+import { FileUploadComponent } from './uploader/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [

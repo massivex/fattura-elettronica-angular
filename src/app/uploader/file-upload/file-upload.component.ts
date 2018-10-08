@@ -74,9 +74,9 @@ import { FileUploadQueueComponent } from '../file-upload-queue/file-upload-queue
     @Output() removeEvent = new EventEmitter<FileUploadComponent>();
     @Output() onUpload = new EventEmitter<FileUploadEvent>();
 
-    private progressPercentage = 0;
+    public progressPercentage = 0;
     public loaded = 0;
-    private total = 0;
+    public total = 0;
     private _file: any;
     private _id: number;
     private fileUploadSubscription: any;

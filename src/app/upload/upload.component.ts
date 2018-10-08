@@ -17,6 +17,7 @@ export class UploadComponent implements OnInit {
   public fileUploadQueue: FileUploadQueueComponent;
 
   @ViewChild('pdfViewer') pdfViewer: PdfViewerComponent;
+  @ViewChild('singleFile') fileInput: HTMLInputElement;
 
   public fileUid: string;
   public canUpload = true;
@@ -36,9 +37,15 @@ export class UploadComponent implements OnInit {
     return;
   }
 
+  browse() {
+    this.pdfViewer.downloadToken = null;
+    (this.fileInput as any).nativeElement.click();
+  }
+
   getServerUid(args: FileUploadEvent) {
     if (args.event instanceof HttpResponse) {
       this.fileUid = args.event.body[0];
+      setTimeout(() => this.carica(), 20);
     }
   }
 
