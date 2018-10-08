@@ -22,7 +22,7 @@ export class DatiTrasmissioneComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-   this.loadDatiTrasmissione(); 
+   this.loadDatiTrasmissione();
   }
 
   private loadDatiTrasmissione() {

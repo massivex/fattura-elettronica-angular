@@ -1,0 +1,24 @@
+<div style="position:relative">
+  <div *ngIf="loading" style="position: absolute; top:0;left:0;right:0;bottom:0;">
+      <div style="position: absolute; top:0;left:0;right:0;bottom:0;background-color: gray;opacity: 0.2;z-index:10;"></div>
+      <mat-progress-bar mode="buffer" style="margin-top: 200px;"></mat-progress-bar>
+  </div>
+  <label for="singleFile">Carica qui la tua fattura elettronica per visualizzarla</label>
+  <br />
+  <br />
+  <input id="singleFile" [attr.disabled]="canUpload ? null : ''" type="file" [fileUploadInputFor]="fileUploadQueue" />
+
+  <br />
+
+  <app-file-upload-queue #fileUploadQueue
+    [autoUpload]="true"
+    [fileAlias]="'files'"
+    (onChange)="onFileChanged($event)">
+    <app-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index" (onUpload)="getServerUid($event)"></app-file-upload>
+  </app-file-upload-queue>
+
+  <button mat-raised-button color="primary" [disabled]="canUpload" (click)="carica()">Visualizza</button> 
+</div>
+<div>
+  <app-pdf-viewer #pdfViewer></app-pdf-viewer>
+</div>

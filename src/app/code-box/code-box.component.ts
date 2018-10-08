@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import URL = require('url-parse');
+import * as urlParse from 'url-parse/dist/url-parse';
 import * as _ from 'lodash';
 
 @Component({
@@ -24,7 +24,7 @@ export class CodeBoxComponent implements OnInit {
       return notAvailable;
     }
 
-    const urlParsed = new (URL as any)(this.url);
+    const urlParsed = new urlParse(this.url);
     return urlParsed.hostname.replace('www.', '');
   }
 

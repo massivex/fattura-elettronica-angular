@@ -1,0 +1,31 @@
+.green-item {
+    background-color: #789C4C;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5px;
+    font-size: 1.4em;
+    width:300px;
+    margin-top:10px;
+  }
+  
+  .fepa-large-link {
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: none;
+    }
+  
+    >span.fa-stack {
+      >i.fa-stack-2x {
+        color: #006699;
+        font-size: 200px
+      }
+  
+      >i.fa-stack-1x {
+        color: white;
+        font-size: 100px;
+        line-height: 200px;
+      }
+    }
+  }
+  

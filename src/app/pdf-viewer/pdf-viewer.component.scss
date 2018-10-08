@@ -1,0 +1,57 @@
+.file-viewer {
+    position: absolute;
+    top: 0;
+    right: -800px;
+    width: 800px;
+    bottom: 6px;
+    z-index: 1000;
+    background-color: #fff;
+    border: 1px solid #8a8a8a;
+    box-shadow: -2px 2px 5px #8a8a8a;
+}
+
+.file-viewer-visible {
+    -webkit-animation: file-viewer-slideIn 1s forwards;
+    -moz-animation: file-viewer-slideIn 1s forwards;
+    animation: file-viewer-slideIn 1s forwards;
+}
+
+.file-viewer i.fa.fa-close {
+    color: white;
+    padding-bottom: 2px;
+    font-size: 24px;
+    cursor: pointer;
+    border: 1px solid gray;
+    padding-left: 3px;padding-right: 3px;
+}
+
+.file-viewer-buttons-container {
+    position:absolute;top:-1px;height:100px;width:40px;padding:5px;right: 0px;
+}
+
+@-webkit-keyframes file-viewer-slideIn {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@-moz-keyframes file-viewer-slideIn {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes file-viewer-slideIn {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}

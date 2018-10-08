@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CedentePrestatoreComponent, AlboFormData } from './cedente-prestatore.component';
 import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BloccoIndirizzoComponent } from '../blocco-indirizzo/blocco-indirizzo.component';
 import { IscrizioneReaComponent } from '../iscrizione-rea/iscrizione-rea.component';
 import { SimpleChange } from '@angular/core';
@@ -20,7 +19,7 @@ describe('CedentePrestatoreComponent', () => {
         CedentePrestatoreComponent, BloccoIndirizzoComponent,
         IscrizioneReaComponent, BloccoAnagraficaComponent
       ],
-      imports: [FormsModule, NgbModule.forRoot()],
+      imports: [FormsModule],
       providers: [
         ProvinciaService
       ]

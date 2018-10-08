@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditorComponent } from './editor.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatiTrasmissioneComponent } from './dati-trasmissione/dati-trasmissione.component';
 import { CedentePrestatoreComponent } from './cedente-prestatore/cedente-prestatore.component';
 import { RappresentanteFiscaleComponent } from './rappresentante-fiscale/rappresentante-fiscale.component';
@@ -28,7 +27,7 @@ describe('EditorComponent', () => {
         BloccoIndirizzoComponent, IscrizioneReaComponent, XmlLoaderComponent,
         BloccoAnagraficaComponent, TerzoIntermediarioComponent
       ],
-      imports: [NgbModule.forRoot(), FormsModule],
+      imports: [FormsModule],
       providers: [
         {
           provide: FatturaElettronicaParserService, useValue: new MockFatturaElettronicaParserService()

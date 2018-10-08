@@ -3,7 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CessionarioCommittenteComponent } from './cessionario-committente.component';
 import { BloccoAnagraficaComponent } from '../blocco-anagrafica/blocco-anagrafica.component';
 import { BloccoIndirizzoComponent } from '../blocco-indirizzo/blocco-indirizzo.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 describe('CessionarioCommittenteComponent', () => {
@@ -15,7 +14,7 @@ describe('CessionarioCommittenteComponent', () => {
       declarations: [
         CessionarioCommittenteComponent, BloccoAnagraficaComponent, BloccoIndirizzoComponent
       ],
-      imports: [ NgbModule.forRoot(), FormsModule ]
+      imports: [ FormsModule ]
     })
     .compileComponents();
   }));

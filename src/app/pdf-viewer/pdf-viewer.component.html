@@ -1,0 +1,6 @@
+<div class="file-viewer" [ngClass]="{ 'file-viewer-visible': visible, 'file-viewer-hidden': !visible }">
+    <div class="file-viewer-buttons-container" *ngIf="visible">
+        <i class="fa fa-close" (click)="close()"></i>
+    </div>
+    <iframe *ngIf="downloadToken != null" [src]="getUrl()" style="width:100%;height:100%;"></iframe>
+</div>
