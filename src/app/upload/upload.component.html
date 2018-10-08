@@ -20,5 +20,5 @@
   <!-- <button mat-raised-button color="primary" [disabled]="canUpload" *ngIf="!canUpload" (click)="carica()">Visualizza</button>  -->
 </div>
 <div>
-  <app-pdf-viewer #pdfViewer></app-pdf-viewer>
+  <app-pdf-viewer #pdfViewer [hidden]="hidePdf"></app-pdf-viewer>
 </div>

@@ -23,6 +23,8 @@ export class UploadComponent implements OnInit {
   public canUpload = true;
   @Input() public httpUrl: string;
   public loading = false;
+
+  public hidePdf = false;
   private fileUploadSubscription: Subscription;
 
   constructor(
@@ -32,13 +34,14 @@ export class UploadComponent implements OnInit {
 
   ngOnInit() {
     this.fileUid = null;
+    this.hidePdf = false;
     this.fileUploadQueue.httpUrl = this.appSettings.SkynetApiUrl + '/api/accounting/fe-viewer/upload';
     this.httpUrl = this.appSettings.SkynetApiUrl + '/api/accounting/fe-viewer/get-token';
     return;
   }
 
   browse() {
-    this.pdfViewer.downloadToken = null;
+    this.hidePdf = true;
     (this.fileInput as any).nativeElement.click();
   }
 
@@ -67,8 +70,9 @@ export class UploadComponent implements OnInit {
       responseType: 'json'
     }).subscribe((event) => {
       console.log(event.token);
+      this.fileUploadQueue.removeAll();
       this.loading = false;
-
+      this.hidePdf = false;
       this.pdfViewer.downloadToken = event.token;
       this.pdfViewer.visible = true;
     }, (error: any) => {
